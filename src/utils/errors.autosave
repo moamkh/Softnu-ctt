@@ -1,0 +1,186 @@
+#ifndef EXCEPTIONS_H
+#define EXCEPTIONS_H
+#include <QException>
+#include <QString>
+#include <QDebug>
+#include <QJsonObject>
+
+struct ErrorMessagesAndCodes{
+    QString m_message;
+    QString m_messageFa;
+    int m_messageCode;
+};
+namespace HttpErrors{
+    const ErrorMessagesAndCodes MethodNotAllowed;
+    const ErrorMessagesAndCodes InvalidJsonFormat;
+    const ErrorMessagesAndCodes InvalidJsonBody;
+    const ErrorMessagesAndCodes InvalidLoginCredentials;
+    const ErrorMessagesAndCodes RegisterationFailed;
+    const ErrorMessagesAndCodes InvalidTokenProvided;
+    const ErrorMessagesAndCodes InvalidConversationID;
+    const ErrorMessagesAndCodes InvalidMessageID;
+    const ErrorMessagesAndCodes FeedbackCreationFailed;
+}
+namespace  {
+
+}
+class BaseCustomException : public QException{
+public:
+    BaseCustomException(
+            const QString& message="Default Error Message:Some problem accured.",
+            const QString& messageFa="خطایی رخ داده است.",
+            const int& code=500):m_message(message),m_messageFa(messageFa),m_messageCode(code){}
+
+    void raise() const override{throw *this;}
+    BaseCustomException *clone() const override{return new BaseCustomException(*this);}
+
+    QString message()const{return m_message;}
+    QString messageFa()const{return m_messageFa;}
+    int messageCode()const {return m_messageCode;}
+    QJsonObject errorLogDataJson()const {
+        QJsonObject logData;
+        logData.insert("message",m_message);
+        logData.insert("messageFa",m_messageFa);
+        logData.insert("messageCode",m_messageCode);
+        return logData;
+    }
+    void echoException(){qDebug()<<m_message;}
+private:
+    QString m_message;
+    QString m_messageFa;
+    int m_messageCode;
+};
+
+/*
+ * CODE PREFIXES:
+ *      WEBSOCKET SERVER ----> 1
+ *      WEBSOCKET CLIENT ----> 2
+ *      DATA BASE        ----> 3
+*/
+
+namespace WsExceptions {
+    //---------------------------------------
+    class NonJsonPayload : public BaseCustomException
+    {
+    public:
+        NonJsonPayload(
+                const QString& message="The payload is not json formated.",
+                const QString& messageFa="فرمت ارسالی قابل قبول نیست",
+                const int& messageCode=10)
+            :BaseCustomException(message,messageFa,messageCode){}
+        void raise() const override{throw *this;}
+        NonJsonPayload *clone() const override{return new NonJsonPayload(*this);}
+    };
+    //---------------------------------------
+    class InvalidJsonBody : public BaseCustomException
+    {
+    public:
+        InvalidJsonBody(
+                const QString& message="The json body is not in proper format.",
+                const QString& messageFa="فرمت ارسالی قابل قبول نیست",
+                const int& messageCode=11)
+            :BaseCustomException(message,messageFa,messageCode){}
+        void raise() const override{throw *this;}
+        InvalidJsonBody *clone() const override{return new InvalidJsonBody(*this);}
+    };
+
+    //---------------------------------------
+    class InvalidToken : public BaseCustomException
+    {
+    public:
+        InvalidToken(
+                const QString& message="The provided token is invalid.",
+                const QString& messageFa="اجازه ی دسترسی داده نشد.",
+                const int& messageCode=12)
+            :BaseCustomException(message,messageFa,messageCode){}
+        void raise() const override{throw *this;}
+        InvalidToken *clone() const override{return new InvalidToken(*this);}
+    };
+    //---------------------------------------
+    class UnAuthenticatedRequest : public BaseCustomException
+    {
+    public:
+        UnAuthenticatedRequest(
+                const QString& message="The user is not Authenticated.",
+                const QString& messageFa="اجازه ی دسترسی داده نشد.",
+                const int& messageCode=13)
+            :BaseCustomException(message,messageFa,messageCode){}
+        void raise() const override{throw *this;}
+        UnAuthenticatedRequest *clone() const override{return new UnAuthenticatedRequest(*this);}
+    };
+
+    //---------------------------------------
+    class FailedToSendMessageToUser : public BaseCustomException
+    {
+    public:
+        FailedToSendMessageToUser(
+                const QString& message="Failed to send message to user connection probebly closed.",
+                const QString& messageFa="مشکلی در ارتباط پیش آمده .",
+                const int& messageCode=14)
+            :BaseCustomException(message,messageFa,messageCode){}
+        void raise() const override{throw *this;}
+        FailedToSendMessageToUser *clone() const override{return new FailedToSendMessageToUser(*this);}
+    };
+}
+
+namespace WsClientExceptions {
+    class OnGoingProcess : public BaseCustomException
+    {
+    public:
+        OnGoingProcess(
+                const QString& message="Ai can handle one request at a time.",
+                const QString& messageFa="در خواست شما در حال پردازش است.",
+                const int& messageCode=20)
+            :BaseCustomException(message,messageFa,messageCode){}
+        void raise() const override{throw *this;}
+        OnGoingProcess *clone() const override{return new OnGoingProcess(*this);}
+    };
+
+    //---------------------------------
+    class ConnectionToAiFailed : public BaseCustomException
+    {
+    public:
+        ConnectionToAiFailed(
+                const QString& message="Failed to make websocket connection to ai.",
+                const QString& messageFa="مشکلی در ارتباط پیش آمده .",
+                const int& messageCode=21)
+            :BaseCustomException(message,messageFa,messageCode){}
+        void raise() const override{throw *this;}
+        ConnectionToAiFailed *clone() const override{return new ConnectionToAiFailed(*this);}
+    };
+
+    //---------------------------------
+    class SendConversationToAiFailed : public BaseCustomException
+    {
+    public:
+        SendConversationToAiFailed(
+                const QString& message="Failed to send message and make websocket connection to ai .",
+                const QString& messageFa="مشکلی در ارتباط پیش آمده .",
+                const int& messageCode=22)
+            :BaseCustomException(message,messageFa,messageCode){}
+        void raise() const override{throw *this;}
+        SendConversationToAiFailed *clone() const override{return new SendConversationToAiFailed(*this);}
+    };
+
+    //---------------------------------
+    class WsOnFail : public BaseCustomException
+    {
+    public:
+        WsOnFail(
+                const QString& message="There was some problem in the connection client on_fail called.",
+                const QString& messageFa="مشکلی در ارتباط پیش آمده .",
+                const int& messageCode=23)
+            :BaseCustomException(message,messageFa,messageCode){}
+        void raise() const override{throw *this;}
+        WsOnFail *clone() const override{return new WsOnFail(*this);}
+    };
+
+
+}
+
+
+
+namespace DataBaseExceptions {
+
+}
+#endif // EXCEPTIONS_H

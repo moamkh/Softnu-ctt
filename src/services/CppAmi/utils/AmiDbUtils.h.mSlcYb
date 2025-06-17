@@ -1,0 +1,15 @@
+#ifndef AMIDBUTILS_H
+#define AMIDBUTILS_H
+
+#include
+
+class AmiDbUtils
+{
+public:
+    AmiDbUtils();
+
+private:
+
+};
+
+#endif // AMIDBUTILS_H

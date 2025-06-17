@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swagger Editor</title>
+    <link href="http://172.20.1.153:8002/fa/docs?file=css" rel="stylesheet">
+    <script src="http://172.20.1.153:8002/fa/docs?file=js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #swagger-editor {
+            height: 100vh;
+        }
+    </style>	
+</head>
+<body>
+    <div id="swagger-editor"></div>
+
+    <script>
+        window.onload = function() {
+            fetch('http://172.20.1.153:8002/fa/docs?file=json')  // Replace with the path to your swagger.json file
+                .then(response => response.json())
+                .then(spec => {
+                    SwaggerUIBundle({
+                        spec: spec,
+                        dom_id: '#swagger-editor',
+                        deepLinking: true,
+                        presets: [
+                            SwaggerUIBundle.presets.apis,
+                            SwaggerUIBundle.SwaggerUIStandalonePreset
+                        ],
+                        plugins: [
+                            SwaggerUIBundle.plugins.DownloadUrl
+                        ],
+                        layout: "BaseLayout"
+                    });
+                });
+        }
+    </script>
+</body>
+</html>
