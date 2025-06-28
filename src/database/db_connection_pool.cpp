@@ -69,7 +69,7 @@ QSqlDatabase DbConnectionPool::createConnection(int index) {
 
 bool DbConnectionPool::validateConnection(QSqlDatabase& db) {
     QSqlQuery testQuery(db);
-    return db.isOpen() && db.isValid() && testQuery.exec("SELECT 1");
+    return db.isOpen() && db.isValid() && testQuery.exec("SELECT 1;");
 }
 
 void DbConnectionPool::reinitConnection(int index) {

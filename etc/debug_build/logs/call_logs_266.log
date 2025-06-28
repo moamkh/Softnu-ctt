@@ -1,0 +1,1443 @@
+{
+    "extension": "266",
+    "privilege": "call,all",
+    "timestamp": "2025-06-23T00:01:47",
+    "type": "monitor_initialized"
+}
+
+{
+    "call_type": "",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "channel": "SIP/266-00009d4d",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "",
+    "end_time": "",
+    "extension_number": "266",
+    "has_ringing": false,
+    "linkedid": "1750654626.752344",
+    "other_extension_number": "",
+    "start_time": "2025-06-23T08:26:13",
+    "status": "initiated",
+    "timestamp": "2025-06-23T08:26:13",
+    "type": "call_started",
+    "uniqueid": "1750654626.752347"
+}
+
+{
+    "channel": "SIP/266-00009d4d",
+    "privilege": "call,all",
+    "timestamp": "2025-06-23T08:26:13",
+    "type": "call_ringing",
+    "uniqueid": "1750654626.752347"
+}
+
+{
+    "channel": "SIP/266-00009d4d",
+    "privilege": "call,all",
+    "timestamp": "2025-06-23T08:26:15",
+    "type": "call_answered",
+    "uniqueid": "1750654626.752347"
+}
+
+{
+    "call_type": "internal",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "cause": "16",
+    "cause_description": "",
+    "cause_txt": "",
+    "channel": "SIP/266-00009d4d",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "in",
+    "end_time": "2025-06-23T08:32:19",
+    "extension_number": "266",
+    "has_ringing": true,
+    "linkedid": "1750654626.752344",
+    "other_extension_number": "271",
+    "raw_event": {
+        "AccountCode": "",
+        "CallerIDName": "266-SUP13",
+        "CallerIDNum": "266",
+        "Cause": "16",
+        "Cause-txt": "Normal Clearing",
+        "Channel": "SIP/266-00009d4d",
+        "ChannelState": "6",
+        "ChannelStateDesc": "Up",
+        "ConnectedLineName": "271-SUP14",
+        "ConnectedLineNum": "271",
+        "Context": "from-internal",
+        "Event": "Hangup",
+        "Exten": "",
+        "Language": "pr2",
+        "Linkedid": "1750654626.752344",
+        "Priority": "1",
+        "Privilege": "call,all",
+        "Uniqueid": "1750654626.752347"
+    },
+    "start_time": "2025-06-23T08:26:15",
+    "status": "answered",
+    "timestamp": "2025-06-23T08:32:19",
+    "type": "call_ended",
+    "uniqueid": "1750654626.752347"
+}
+
+{
+    "call_duration": 363,
+    "call_type": "internal",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "cause": "16",
+    "cause_description": "",
+    "cause_txt": "",
+    "channel": "SIP/266-00009d4d",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "in",
+    "end_time": "2025-06-23T08:32:19",
+    "extension_number": "266",
+    "has_ringing": true,
+    "linkedid": "1750654626.752344",
+    "other_extension_number": "271",
+    "raw_event": {
+        "AccountCode": "",
+        "CallerIDName": "266-SUP13",
+        "CallerIDNum": "266",
+        "Cause": "16",
+        "Cause-txt": "Normal Clearing",
+        "Channel": "SIP/266-00009d4d",
+        "ChannelState": "6",
+        "ChannelStateDesc": "Up",
+        "ConnectedLineName": "271-SUP14",
+        "ConnectedLineNum": "271",
+        "Context": "from-internal",
+        "Event": "Hangup",
+        "Exten": "",
+        "Language": "pr2",
+        "Linkedid": "1750654626.752344",
+        "Priority": "1",
+        "Privilege": "call,all",
+        "Uniqueid": "1750654626.752347"
+    },
+    "start_time": "2025-06-23T08:26:15",
+    "status": "answered",
+    "timestamp": "2025-06-23T08:32:19",
+    "type": "call_summary",
+    "uniqueid": "1750654626.752347"
+}
+
+{
+    "call_type": "",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "channel": "SIP/266-00009f7a",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "",
+    "end_time": "",
+    "extension_number": "266",
+    "has_ringing": false,
+    "linkedid": "1750659125.758647",
+    "other_extension_number": "",
+    "start_time": "2025-06-23T09:41:12",
+    "status": "initiated",
+    "timestamp": "2025-06-23T09:41:12",
+    "type": "call_started",
+    "uniqueid": "1750659125.758647"
+}
+
+{
+    "channel": "SIP/266-00009f7a",
+    "privilege": "call,all",
+    "timestamp": "2025-06-23T09:41:15",
+    "type": "call_answered",
+    "uniqueid": "1750659125.758647"
+}
+
+{
+    "call_type": "internal",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "cause": "16",
+    "cause_description": "",
+    "cause_txt": "",
+    "channel": "SIP/266-00009f7a",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "out",
+    "end_time": "2025-06-23T09:43:26",
+    "extension_number": "266",
+    "has_ringing": false,
+    "linkedid": "1750659125.758647",
+    "other_extension_number": "365",
+    "raw_event": {
+        "AccountCode": "",
+        "CallerIDName": "266-SUP13",
+        "CallerIDNum": "266",
+        "Cause": "16",
+        "Cause-txt": "Normal Clearing",
+        "Channel": "SIP/266-00009f7a",
+        "ChannelState": "6",
+        "ChannelStateDesc": "Up",
+        "ConnectedLineName": "365-TE6",
+        "ConnectedLineNum": "365",
+        "Context": "from-internal",
+        "Event": "Hangup",
+        "Exten": "h",
+        "Language": "pr2",
+        "Linkedid": "1750659125.758647",
+        "Priority": "1",
+        "Privilege": "call,all",
+        "Uniqueid": "1750659125.758647"
+    },
+    "start_time": "2025-06-23T09:41:15",
+    "status": "answered",
+    "timestamp": "2025-06-23T09:43:26",
+    "type": "call_ended",
+    "uniqueid": "1750659125.758647"
+}
+
+{
+    "call_duration": 130,
+    "call_type": "internal",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "cause": "16",
+    "cause_description": "",
+    "cause_txt": "",
+    "channel": "SIP/266-00009f7a",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "out",
+    "end_time": "2025-06-23T09:43:26",
+    "extension_number": "266",
+    "has_ringing": false,
+    "linkedid": "1750659125.758647",
+    "other_extension_number": "365",
+    "raw_event": {
+        "AccountCode": "",
+        "CallerIDName": "266-SUP13",
+        "CallerIDNum": "266",
+        "Cause": "16",
+        "Cause-txt": "Normal Clearing",
+        "Channel": "SIP/266-00009f7a",
+        "ChannelState": "6",
+        "ChannelStateDesc": "Up",
+        "ConnectedLineName": "365-TE6",
+        "ConnectedLineNum": "365",
+        "Context": "from-internal",
+        "Event": "Hangup",
+        "Exten": "h",
+        "Language": "pr2",
+        "Linkedid": "1750659125.758647",
+        "Priority": "1",
+        "Privilege": "call,all",
+        "Uniqueid": "1750659125.758647"
+    },
+    "start_time": "2025-06-23T09:41:15",
+    "status": "answered",
+    "timestamp": "2025-06-23T09:43:26",
+    "type": "call_summary",
+    "uniqueid": "1750659125.758647"
+}
+
+{
+    "call_type": "",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "channel": "SIP/266-0000a151",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "",
+    "end_time": "",
+    "extension_number": "266",
+    "has_ringing": false,
+    "linkedid": "1750662795.763996",
+    "other_extension_number": "",
+    "start_time": "2025-06-23T10:42:22",
+    "status": "initiated",
+    "timestamp": "2025-06-23T10:42:22",
+    "type": "call_started",
+    "uniqueid": "1750662795.763996"
+}
+
+{
+    "channel": "SIP/266-0000a151",
+    "privilege": "call,all",
+    "timestamp": "2025-06-23T10:42:26",
+    "type": "call_answered",
+    "uniqueid": "1750662795.763996"
+}
+
+{
+    "call_type": "internal",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "cause": "16",
+    "cause_description": "",
+    "cause_txt": "",
+    "channel": "SIP/266-0000a151",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "out",
+    "end_time": "2025-06-23T10:42:43",
+    "extension_number": "266",
+    "has_ringing": false,
+    "linkedid": "1750662795.763996",
+    "other_extension_number": "512",
+    "raw_event": {
+        "AccountCode": "",
+        "CallerIDName": "266-SUP13",
+        "CallerIDNum": "266",
+        "Cause": "16",
+        "Cause-txt": "Normal Clearing",
+        "Channel": "SIP/266-0000a151",
+        "ChannelState": "6",
+        "ChannelStateDesc": "Up",
+        "ConnectedLineName": "512-ICT3",
+        "ConnectedLineNum": "512",
+        "Context": "from-internal",
+        "Event": "Hangup",
+        "Exten": "h",
+        "Language": "pr2",
+        "Linkedid": "1750662795.763996",
+        "Priority": "1",
+        "Privilege": "call,all",
+        "Uniqueid": "1750662795.763996"
+    },
+    "start_time": "2025-06-23T10:42:26",
+    "status": "answered",
+    "timestamp": "2025-06-23T10:42:43",
+    "type": "call_ended",
+    "uniqueid": "1750662795.763996"
+}
+
+{
+    "call_duration": 16,
+    "call_type": "internal",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "cause": "16",
+    "cause_description": "",
+    "cause_txt": "",
+    "channel": "SIP/266-0000a151",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "out",
+    "end_time": "2025-06-23T10:42:43",
+    "extension_number": "266",
+    "has_ringing": false,
+    "linkedid": "1750662795.763996",
+    "other_extension_number": "512",
+    "raw_event": {
+        "AccountCode": "",
+        "CallerIDName": "266-SUP13",
+        "CallerIDNum": "266",
+        "Cause": "16",
+        "Cause-txt": "Normal Clearing",
+        "Channel": "SIP/266-0000a151",
+        "ChannelState": "6",
+        "ChannelStateDesc": "Up",
+        "ConnectedLineName": "512-ICT3",
+        "ConnectedLineNum": "512",
+        "Context": "from-internal",
+        "Event": "Hangup",
+        "Exten": "h",
+        "Language": "pr2",
+        "Linkedid": "1750662795.763996",
+        "Priority": "1",
+        "Privilege": "call,all",
+        "Uniqueid": "1750662795.763996"
+    },
+    "start_time": "2025-06-23T10:42:26",
+    "status": "answered",
+    "timestamp": "2025-06-23T10:42:43",
+    "type": "call_summary",
+    "uniqueid": "1750662795.763996"
+}
+
+{
+    "extension": "266",
+    "privilege": "call,all",
+    "timestamp": "2025-06-23T20:53:45",
+    "type": "monitor_initialized"
+}
+
+{
+    "call_type": "",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "channel": "SIP/266-0000ab24",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "",
+    "end_time": "",
+    "extension_number": "266",
+    "has_ringing": false,
+    "linkedid": "1750740320.802143",
+    "other_extension_number": "",
+    "start_time": "2025-06-24T08:14:27",
+    "status": "initiated",
+    "timestamp": "2025-06-24T08:14:27",
+    "type": "call_started",
+    "uniqueid": "1750740320.802143"
+}
+
+{
+    "channel": "SIP/266-0000ab24",
+    "privilege": "call,all",
+    "timestamp": "2025-06-24T08:14:36",
+    "type": "call_answered",
+    "uniqueid": "1750740320.802143"
+}
+
+{
+    "call_type": "internal",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "cause": "16",
+    "cause_description": "",
+    "cause_txt": "",
+    "channel": "SIP/266-0000ab24",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "out",
+    "end_time": "2025-06-24T08:16:14",
+    "extension_number": "266",
+    "has_ringing": false,
+    "linkedid": "1750740320.802143",
+    "other_extension_number": "271",
+    "raw_event": {
+        "AccountCode": "",
+        "CallerIDName": "266-SUP13",
+        "CallerIDNum": "266",
+        "Cause": "16",
+        "Cause-txt": "Normal Clearing",
+        "Channel": "SIP/266-0000ab24",
+        "ChannelState": "6",
+        "ChannelStateDesc": "Up",
+        "ConnectedLineName": "271-SUP14",
+        "ConnectedLineNum": "271",
+        "Context": "from-internal",
+        "Event": "Hangup",
+        "Exten": "h",
+        "Language": "pr2",
+        "Linkedid": "1750740320.802143",
+        "Priority": "1",
+        "Privilege": "call,all",
+        "Uniqueid": "1750740320.802143"
+    },
+    "start_time": "2025-06-24T08:14:36",
+    "status": "answered",
+    "timestamp": "2025-06-24T08:16:14",
+    "type": "call_ended",
+    "uniqueid": "1750740320.802143"
+}
+
+{
+    "call_duration": 98,
+    "call_type": "internal",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "cause": "16",
+    "cause_description": "",
+    "cause_txt": "",
+    "channel": "SIP/266-0000ab24",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "out",
+    "end_time": "2025-06-24T08:16:14",
+    "extension_number": "266",
+    "has_ringing": false,
+    "linkedid": "1750740320.802143",
+    "other_extension_number": "271",
+    "raw_event": {
+        "AccountCode": "",
+        "CallerIDName": "266-SUP13",
+        "CallerIDNum": "266",
+        "Cause": "16",
+        "Cause-txt": "Normal Clearing",
+        "Channel": "SIP/266-0000ab24",
+        "ChannelState": "6",
+        "ChannelStateDesc": "Up",
+        "ConnectedLineName": "271-SUP14",
+        "ConnectedLineNum": "271",
+        "Context": "from-internal",
+        "Event": "Hangup",
+        "Exten": "h",
+        "Language": "pr2",
+        "Linkedid": "1750740320.802143",
+        "Priority": "1",
+        "Privilege": "call,all",
+        "Uniqueid": "1750740320.802143"
+    },
+    "start_time": "2025-06-24T08:14:36",
+    "status": "answered",
+    "timestamp": "2025-06-24T08:16:14",
+    "type": "call_summary",
+    "uniqueid": "1750740320.802143"
+}
+
+{
+    "call_type": "",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "channel": "SIP/266-0000aeb8",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "",
+    "end_time": "",
+    "extension_number": "266",
+    "has_ringing": false,
+    "linkedid": "1750748111.812306",
+    "other_extension_number": "",
+    "start_time": "2025-06-24T10:24:18",
+    "status": "initiated",
+    "timestamp": "2025-06-24T10:24:18",
+    "type": "call_started",
+    "uniqueid": "1750748111.812306"
+}
+
+{
+    "channel": "SIP/266-0000aeb8",
+    "privilege": "call,all",
+    "timestamp": "2025-06-24T10:24:25",
+    "type": "call_answered",
+    "uniqueid": "1750748111.812306"
+}
+
+{
+    "call_type": "external",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "cause": "16",
+    "cause_description": "",
+    "cause_txt": "",
+    "channel": "SIP/266-0000aeb8",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "out",
+    "end_time": "2025-06-24T10:25:56",
+    "extension_number": "266",
+    "has_ringing": false,
+    "linkedid": "1750748111.812306",
+    "other_extension_number": "09111139747",
+    "raw_event": {
+        "AccountCode": "",
+        "CallerIDName": "<unknown>",
+        "CallerIDNum": "36944000",
+        "Cause": "16",
+        "Cause-txt": "Normal Clearing",
+        "Channel": "SIP/266-0000aeb8",
+        "ChannelState": "6",
+        "ChannelStateDesc": "Up",
+        "ConnectedLineName": "CID:36944000",
+        "ConnectedLineNum": "09111139747",
+        "Context": "from-internal",
+        "Event": "Hangup",
+        "Exten": "h",
+        "Language": "pr2",
+        "Linkedid": "1750748111.812306",
+        "Priority": "1",
+        "Privilege": "call,all",
+        "Uniqueid": "1750748111.812306"
+    },
+    "start_time": "2025-06-24T10:24:25",
+    "status": "answered",
+    "timestamp": "2025-06-24T10:25:56",
+    "type": "call_ended",
+    "uniqueid": "1750748111.812306"
+}
+
+{
+    "call_duration": 91,
+    "call_type": "external",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "cause": "16",
+    "cause_description": "",
+    "cause_txt": "",
+    "channel": "SIP/266-0000aeb8",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "out",
+    "end_time": "2025-06-24T10:25:56",
+    "extension_number": "266",
+    "has_ringing": false,
+    "linkedid": "1750748111.812306",
+    "other_extension_number": "09111139747",
+    "raw_event": {
+        "AccountCode": "",
+        "CallerIDName": "<unknown>",
+        "CallerIDNum": "36944000",
+        "Cause": "16",
+        "Cause-txt": "Normal Clearing",
+        "Channel": "SIP/266-0000aeb8",
+        "ChannelState": "6",
+        "ChannelStateDesc": "Up",
+        "ConnectedLineName": "CID:36944000",
+        "ConnectedLineNum": "09111139747",
+        "Context": "from-internal",
+        "Event": "Hangup",
+        "Exten": "h",
+        "Language": "pr2",
+        "Linkedid": "1750748111.812306",
+        "Priority": "1",
+        "Privilege": "call,all",
+        "Uniqueid": "1750748111.812306"
+    },
+    "start_time": "2025-06-24T10:24:25",
+    "status": "answered",
+    "timestamp": "2025-06-24T10:25:56",
+    "type": "call_summary",
+    "uniqueid": "1750748111.812306"
+}
+
+{
+    "call_type": "",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "channel": "SIP/266-0000af2e",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "",
+    "end_time": "",
+    "extension_number": "266",
+    "has_ringing": false,
+    "linkedid": "1750748876.813560",
+    "other_extension_number": "",
+    "start_time": "2025-06-24T10:37:03",
+    "status": "initiated",
+    "timestamp": "2025-06-24T10:37:03",
+    "type": "call_started",
+    "uniqueid": "1750748876.813560"
+}
+
+{
+    "channel": "SIP/266-0000af2e",
+    "privilege": "call,all",
+    "timestamp": "2025-06-24T10:37:10",
+    "type": "call_answered",
+    "uniqueid": "1750748876.813560"
+}
+
+{
+    "call_type": "external",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "cause": "16",
+    "cause_description": "",
+    "cause_txt": "",
+    "channel": "SIP/266-0000af2e",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "out",
+    "end_time": "2025-06-24T10:38:43",
+    "extension_number": "266",
+    "has_ringing": false,
+    "linkedid": "1750748876.813560",
+    "other_extension_number": "09111139747",
+    "raw_event": {
+        "AccountCode": "",
+        "CallerIDName": "<unknown>",
+        "CallerIDNum": "36944000",
+        "Cause": "16",
+        "Cause-txt": "Normal Clearing",
+        "Channel": "SIP/266-0000af2e",
+        "ChannelState": "6",
+        "ChannelStateDesc": "Up",
+        "ConnectedLineName": "CID:36944000",
+        "ConnectedLineNum": "09111139747",
+        "Context": "from-internal",
+        "Event": "Hangup",
+        "Exten": "h",
+        "Language": "pr2",
+        "Linkedid": "1750748876.813560",
+        "Priority": "1",
+        "Privilege": "call,all",
+        "Uniqueid": "1750748876.813560"
+    },
+    "start_time": "2025-06-24T10:37:10",
+    "status": "answered",
+    "timestamp": "2025-06-24T10:38:43",
+    "type": "call_ended",
+    "uniqueid": "1750748876.813560"
+}
+
+{
+    "call_duration": 93,
+    "call_type": "external",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "cause": "16",
+    "cause_description": "",
+    "cause_txt": "",
+    "channel": "SIP/266-0000af2e",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "out",
+    "end_time": "2025-06-24T10:38:43",
+    "extension_number": "266",
+    "has_ringing": false,
+    "linkedid": "1750748876.813560",
+    "other_extension_number": "09111139747",
+    "raw_event": {
+        "AccountCode": "",
+        "CallerIDName": "<unknown>",
+        "CallerIDNum": "36944000",
+        "Cause": "16",
+        "Cause-txt": "Normal Clearing",
+        "Channel": "SIP/266-0000af2e",
+        "ChannelState": "6",
+        "ChannelStateDesc": "Up",
+        "ConnectedLineName": "CID:36944000",
+        "ConnectedLineNum": "09111139747",
+        "Context": "from-internal",
+        "Event": "Hangup",
+        "Exten": "h",
+        "Language": "pr2",
+        "Linkedid": "1750748876.813560",
+        "Priority": "1",
+        "Privilege": "call,all",
+        "Uniqueid": "1750748876.813560"
+    },
+    "start_time": "2025-06-24T10:37:10",
+    "status": "answered",
+    "timestamp": "2025-06-24T10:38:43",
+    "type": "call_summary",
+    "uniqueid": "1750748876.813560"
+}
+
+{
+    "extension": "266",
+    "privilege": "call,all",
+    "timestamp": "2025-06-24T17:01:41",
+    "type": "monitor_initialized"
+}
+
+{
+    "call_type": "",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "channel": "SIP/266-00000961",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "",
+    "end_time": "",
+    "extension_number": "266",
+    "has_ringing": false,
+    "linkedid": "1750829172.36130",
+    "other_extension_number": "",
+    "start_time": "2025-06-25T08:55:19",
+    "status": "initiated",
+    "timestamp": "2025-06-25T08:55:19",
+    "type": "call_started",
+    "uniqueid": "1750829172.36133"
+}
+
+{
+    "channel": "SIP/266-00000961",
+    "privilege": "call,all",
+    "timestamp": "2025-06-25T08:55:19",
+    "type": "call_ringing",
+    "uniqueid": "1750829172.36133"
+}
+
+{
+    "channel": "SIP/266-00000961",
+    "privilege": "call,all",
+    "timestamp": "2025-06-25T08:55:21",
+    "type": "call_answered",
+    "uniqueid": "1750829172.36133"
+}
+
+{
+    "call_type": "internal",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "cause": "16",
+    "cause_description": "",
+    "cause_txt": "",
+    "channel": "SIP/266-00000961",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "in",
+    "end_time": "2025-06-25T08:55:44",
+    "extension_number": "266",
+    "has_ringing": true,
+    "linkedid": "1750829172.36130",
+    "other_extension_number": "271",
+    "raw_event": {
+        "AccountCode": "",
+        "CallerIDName": "266-SUP13",
+        "CallerIDNum": "266",
+        "Cause": "16",
+        "Cause-txt": "Normal Clearing",
+        "Channel": "SIP/266-00000961",
+        "ChannelState": "6",
+        "ChannelStateDesc": "Up",
+        "ConnectedLineName": "271-SUP14",
+        "ConnectedLineNum": "271",
+        "Context": "from-internal",
+        "Event": "Hangup",
+        "Exten": "",
+        "Language": "pr2",
+        "Linkedid": "1750829172.36130",
+        "Priority": "1",
+        "Privilege": "call,all",
+        "Uniqueid": "1750829172.36133"
+    },
+    "start_time": "2025-06-25T08:55:21",
+    "status": "answered",
+    "timestamp": "2025-06-25T08:55:44",
+    "type": "call_ended",
+    "uniqueid": "1750829172.36133"
+}
+
+{
+    "call_duration": 23,
+    "call_type": "internal",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "cause": "16",
+    "cause_description": "",
+    "cause_txt": "",
+    "channel": "SIP/266-00000961",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "in",
+    "end_time": "2025-06-25T08:55:44",
+    "extension_number": "266",
+    "has_ringing": true,
+    "linkedid": "1750829172.36130",
+    "other_extension_number": "271",
+    "raw_event": {
+        "AccountCode": "",
+        "CallerIDName": "266-SUP13",
+        "CallerIDNum": "266",
+        "Cause": "16",
+        "Cause-txt": "Normal Clearing",
+        "Channel": "SIP/266-00000961",
+        "ChannelState": "6",
+        "ChannelStateDesc": "Up",
+        "ConnectedLineName": "271-SUP14",
+        "ConnectedLineNum": "271",
+        "Context": "from-internal",
+        "Event": "Hangup",
+        "Exten": "",
+        "Language": "pr2",
+        "Linkedid": "1750829172.36130",
+        "Priority": "1",
+        "Privilege": "call,all",
+        "Uniqueid": "1750829172.36133"
+    },
+    "start_time": "2025-06-25T08:55:21",
+    "status": "answered",
+    "timestamp": "2025-06-25T08:55:44",
+    "type": "call_summary",
+    "uniqueid": "1750829172.36133"
+}
+
+{
+    "call_type": "",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "channel": "SIP/266-00000ae7",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "",
+    "end_time": "",
+    "extension_number": "266",
+    "has_ringing": false,
+    "linkedid": "1750832258.40491",
+    "other_extension_number": "",
+    "start_time": "2025-06-25T09:46:46",
+    "status": "initiated",
+    "timestamp": "2025-06-25T09:46:46",
+    "type": "call_started",
+    "uniqueid": "1750832258.40494"
+}
+
+{
+    "channel": "SIP/266-00000ae7",
+    "privilege": "call,all",
+    "timestamp": "2025-06-25T09:46:46",
+    "type": "call_ringing",
+    "uniqueid": "1750832258.40494"
+}
+
+{
+    "call_type": "internal",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "cause": "16",
+    "cause_description": "",
+    "cause_txt": "",
+    "channel": "SIP/266-00000ae7",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "in",
+    "end_time": "2025-06-25T09:46:55",
+    "extension_number": "266",
+    "has_ringing": true,
+    "linkedid": "1750832258.40491",
+    "other_extension_number": "271",
+    "raw_event": {
+        "AccountCode": "",
+        "CallerIDName": "266-SUP13",
+        "CallerIDNum": "266",
+        "Cause": "16",
+        "Cause-txt": "Normal Clearing",
+        "Channel": "SIP/266-00000ae7",
+        "ChannelState": "5",
+        "ChannelStateDesc": "Ringing",
+        "ConnectedLineName": "271-SUP14",
+        "ConnectedLineNum": "271",
+        "Context": "from-internal",
+        "Event": "Hangup",
+        "Exten": "266",
+        "Language": "pr2",
+        "Linkedid": "1750832258.40491",
+        "Priority": "1",
+        "Privilege": "call,all",
+        "Uniqueid": "1750832258.40494"
+    },
+    "start_time": "2025-06-25T09:46:46",
+    "status": "ringing",
+    "timestamp": "2025-06-25T09:46:55",
+    "type": "call_ended",
+    "uniqueid": "1750832258.40494"
+}
+
+{
+    "call_duration": 9,
+    "call_type": "internal",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "cause": "16",
+    "cause_description": "",
+    "cause_txt": "",
+    "channel": "SIP/266-00000ae7",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "in",
+    "end_time": "2025-06-25T09:46:55",
+    "extension_number": "266",
+    "has_ringing": true,
+    "linkedid": "1750832258.40491",
+    "other_extension_number": "271",
+    "raw_event": {
+        "AccountCode": "",
+        "CallerIDName": "266-SUP13",
+        "CallerIDNum": "266",
+        "Cause": "16",
+        "Cause-txt": "Normal Clearing",
+        "Channel": "SIP/266-00000ae7",
+        "ChannelState": "5",
+        "ChannelStateDesc": "Ringing",
+        "ConnectedLineName": "271-SUP14",
+        "ConnectedLineNum": "271",
+        "Context": "from-internal",
+        "Event": "Hangup",
+        "Exten": "266",
+        "Language": "pr2",
+        "Linkedid": "1750832258.40491",
+        "Priority": "1",
+        "Privilege": "call,all",
+        "Uniqueid": "1750832258.40494"
+    },
+    "start_time": "2025-06-25T09:46:46",
+    "status": "ringing",
+    "timestamp": "2025-06-25T09:46:55",
+    "type": "call_summary",
+    "uniqueid": "1750832258.40494"
+}
+
+{
+    "call_type": "",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "channel": "SIP/266-00000b49",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "",
+    "end_time": "",
+    "extension_number": "266",
+    "has_ringing": false,
+    "linkedid": "1750833275.41631",
+    "other_extension_number": "",
+    "start_time": "2025-06-25T10:03:42",
+    "status": "initiated",
+    "timestamp": "2025-06-25T10:03:42",
+    "type": "call_started",
+    "uniqueid": "1750833275.41631"
+}
+
+{
+    "channel": "SIP/266-00000b49",
+    "privilege": "call,all",
+    "timestamp": "2025-06-25T10:03:48",
+    "type": "call_answered",
+    "uniqueid": "1750833275.41631"
+}
+
+{
+    "call_type": "internal",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "cause": "16",
+    "cause_description": "",
+    "cause_txt": "",
+    "channel": "SIP/266-00000b49",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "out",
+    "end_time": "2025-06-25T10:08:34",
+    "extension_number": "266",
+    "has_ringing": false,
+    "linkedid": "1750833275.41631",
+    "other_extension_number": "525",
+    "raw_event": {
+        "AccountCode": "",
+        "CallerIDName": "266-SUP13",
+        "CallerIDNum": "266",
+        "Cause": "16",
+        "Cause-txt": "Normal Clearing",
+        "Channel": "SIP/266-00000b49",
+        "ChannelState": "6",
+        "ChannelStateDesc": "Up",
+        "ConnectedLineName": "525-SM5",
+        "ConnectedLineNum": "525",
+        "Context": "from-internal",
+        "Event": "Hangup",
+        "Exten": "h",
+        "Language": "pr2",
+        "Linkedid": "1750833275.41631",
+        "Priority": "1",
+        "Privilege": "call,all",
+        "Uniqueid": "1750833275.41631"
+    },
+    "start_time": "2025-06-25T10:03:48",
+    "status": "answered",
+    "timestamp": "2025-06-25T10:08:34",
+    "type": "call_ended",
+    "uniqueid": "1750833275.41631"
+}
+
+{
+    "call_duration": 286,
+    "call_type": "internal",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "cause": "16",
+    "cause_description": "",
+    "cause_txt": "",
+    "channel": "SIP/266-00000b49",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "out",
+    "end_time": "2025-06-25T10:08:34",
+    "extension_number": "266",
+    "has_ringing": false,
+    "linkedid": "1750833275.41631",
+    "other_extension_number": "525",
+    "raw_event": {
+        "AccountCode": "",
+        "CallerIDName": "266-SUP13",
+        "CallerIDNum": "266",
+        "Cause": "16",
+        "Cause-txt": "Normal Clearing",
+        "Channel": "SIP/266-00000b49",
+        "ChannelState": "6",
+        "ChannelStateDesc": "Up",
+        "ConnectedLineName": "525-SM5",
+        "ConnectedLineNum": "525",
+        "Context": "from-internal",
+        "Event": "Hangup",
+        "Exten": "h",
+        "Language": "pr2",
+        "Linkedid": "1750833275.41631",
+        "Priority": "1",
+        "Privilege": "call,all",
+        "Uniqueid": "1750833275.41631"
+    },
+    "start_time": "2025-06-25T10:03:48",
+    "status": "answered",
+    "timestamp": "2025-06-25T10:08:34",
+    "type": "call_summary",
+    "uniqueid": "1750833275.41631"
+}
+
+{
+    "call_type": "",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "channel": "SIP/266-00000b92",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "",
+    "end_time": "",
+    "extension_number": "266",
+    "has_ringing": false,
+    "linkedid": "1750833785.42405",
+    "other_extension_number": "",
+    "start_time": "2025-06-25T10:12:13",
+    "status": "initiated",
+    "timestamp": "2025-06-25T10:12:13",
+    "type": "call_started",
+    "uniqueid": "1750833786.42408"
+}
+
+{
+    "channel": "SIP/266-00000b92",
+    "privilege": "call,all",
+    "timestamp": "2025-06-25T10:12:13",
+    "type": "call_ringing",
+    "uniqueid": "1750833786.42408"
+}
+
+{
+    "channel": "SIP/266-00000b92",
+    "privilege": "call,all",
+    "timestamp": "2025-06-25T10:12:15",
+    "type": "call_answered",
+    "uniqueid": "1750833786.42408"
+}
+
+{
+    "call_type": "internal",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "cause": "16",
+    "cause_description": "",
+    "cause_txt": "",
+    "channel": "SIP/266-00000b92",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "in",
+    "end_time": "2025-06-25T10:14:58",
+    "extension_number": "266",
+    "has_ringing": true,
+    "linkedid": "1750833785.42405",
+    "other_extension_number": "525",
+    "raw_event": {
+        "AccountCode": "",
+        "CallerIDName": "266-SUP13",
+        "CallerIDNum": "266",
+        "Cause": "16",
+        "Cause-txt": "Normal Clearing",
+        "Channel": "SIP/266-00000b92",
+        "ChannelState": "6",
+        "ChannelStateDesc": "Up",
+        "ConnectedLineName": "525-SM5",
+        "ConnectedLineNum": "525",
+        "Context": "from-internal",
+        "Event": "Hangup",
+        "Exten": "",
+        "Language": "pr2",
+        "Linkedid": "1750833785.42405",
+        "Priority": "1",
+        "Privilege": "call,all",
+        "Uniqueid": "1750833786.42408"
+    },
+    "start_time": "2025-06-25T10:12:15",
+    "status": "answered",
+    "timestamp": "2025-06-25T10:14:58",
+    "type": "call_ended",
+    "uniqueid": "1750833786.42408"
+}
+
+{
+    "call_duration": 163,
+    "call_type": "internal",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "cause": "16",
+    "cause_description": "",
+    "cause_txt": "",
+    "channel": "SIP/266-00000b92",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "in",
+    "end_time": "2025-06-25T10:14:58",
+    "extension_number": "266",
+    "has_ringing": true,
+    "linkedid": "1750833785.42405",
+    "other_extension_number": "525",
+    "raw_event": {
+        "AccountCode": "",
+        "CallerIDName": "266-SUP13",
+        "CallerIDNum": "266",
+        "Cause": "16",
+        "Cause-txt": "Normal Clearing",
+        "Channel": "SIP/266-00000b92",
+        "ChannelState": "6",
+        "ChannelStateDesc": "Up",
+        "ConnectedLineName": "525-SM5",
+        "ConnectedLineNum": "525",
+        "Context": "from-internal",
+        "Event": "Hangup",
+        "Exten": "",
+        "Language": "pr2",
+        "Linkedid": "1750833785.42405",
+        "Priority": "1",
+        "Privilege": "call,all",
+        "Uniqueid": "1750833786.42408"
+    },
+    "start_time": "2025-06-25T10:12:15",
+    "status": "answered",
+    "timestamp": "2025-06-25T10:14:58",
+    "type": "call_summary",
+    "uniqueid": "1750833786.42408"
+}
+
+{
+    "extension": "266",
+    "privilege": "call,all",
+    "timestamp": "2025-06-25T13:23:16",
+    "type": "monitor_initialized"
+}
+
+{
+    "extension": "266",
+    "privilege": "call,all",
+    "timestamp": "2025-06-25T14:01:10",
+    "type": "monitor_initialized"
+}
+
+{
+    "extension": "266",
+    "privilege": "call,all",
+    "timestamp": "2025-06-25T14:07:32",
+    "type": "monitor_initialized"
+}
+
+{
+    "extension": "266",
+    "privilege": "call,all",
+    "timestamp": "2025-06-25T15:05:15",
+    "type": "monitor_initialized"
+}
+
+{
+    "extension": "266",
+    "privilege": "call,all",
+    "timestamp": "2025-06-25T15:10:57",
+    "type": "monitor_initialized"
+}
+
+{
+    "extension": "266",
+    "privilege": "call,all",
+    "timestamp": "2025-06-25T15:20:47",
+    "type": "monitor_initialized"
+}
+
+{
+    "call_type": "",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "channel": "SIP/266-0000153a",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "",
+    "end_time": "",
+    "extension_number": "266",
+    "has_ringing": false,
+    "linkedid": "1750857123.73485",
+    "other_extension_number": "",
+    "start_time": "2025-06-25T16:41:09",
+    "status": "initiated",
+    "timestamp": "2025-06-25T16:41:09",
+    "type": "call_started",
+    "uniqueid": "1750857123.73485"
+}
+
+{
+    "channel": "SIP/266-0000153a",
+    "privilege": "call,all",
+    "timestamp": "2025-06-25T16:41:12",
+    "type": "call_answered",
+    "uniqueid": "1750857123.73485"
+}
+
+{
+    "call_type": "internal",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "cause": "16",
+    "cause_description": "",
+    "cause_txt": "",
+    "channel": "SIP/266-0000153a",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "out",
+    "end_time": "2025-06-25T16:43:11",
+    "extension_number": "266",
+    "has_ringing": false,
+    "linkedid": "1750857123.73485",
+    "other_extension_number": "365",
+    "raw_event": {
+        "AccountCode": "",
+        "CallerIDName": "266-SUP13",
+        "CallerIDNum": "266",
+        "Cause": "16",
+        "Cause-txt": "Normal Clearing",
+        "Channel": "SIP/266-0000153a",
+        "ChannelState": "6",
+        "ChannelStateDesc": "Up",
+        "ConnectedLineName": "365-TE6",
+        "ConnectedLineNum": "365",
+        "Context": "from-internal",
+        "Event": "Hangup",
+        "Exten": "h",
+        "Language": "pr2",
+        "Linkedid": "1750857123.73485",
+        "Priority": "1",
+        "Privilege": "call,all",
+        "Uniqueid": "1750857123.73485"
+    },
+    "start_time": "2025-06-25T16:41:12",
+    "status": "answered",
+    "timestamp": "2025-06-25T16:43:11",
+    "type": "call_ended",
+    "uniqueid": "1750857123.73485"
+}
+
+{
+    "call_duration": 118,
+    "call_type": "internal",
+    "caller_id_name": "266-SUP13",
+    "caller_id_num": "266",
+    "cause": "16",
+    "cause_description": "",
+    "cause_txt": "",
+    "channel": "SIP/266-0000153a",
+    "connected_line_name": "<unknown>",
+    "connected_line_num": "<unknown>",
+    "direction": "out",
+    "end_time": "2025-06-25T16:43:11",
+    "extension_number": "266",
+    "has_ringing": false,
+    "linkedid": "1750857123.73485",
+    "other_extension_number": "365",
+    "raw_event": {
+        "AccountCode": "",
+        "CallerIDName": "266-SUP13",
+        "CallerIDNum": "266",
+        "Cause": "16",
+        "Cause-txt": "Normal Clearing",
+        "Channel": "SIP/266-0000153a",
+        "ChannelState": "6",
+        "ChannelStateDesc": "Up",
+        "ConnectedLineName": "365-TE6",
+        "ConnectedLineNum": "365",
+        "Context": "from-internal",
+        "Event": "Hangup",
+        "Exten": "h",
+        "Language": "pr2",
+        "Linkedid": "1750857123.73485",
+        "Priority": "1",
+        "Privilege": "call,all",
+        "Uniqueid": "1750857123.73485"
+    },
+    "start_time": "2025-06-25T16:41:12",
+    "status": "answered",
+    "timestamp": "2025-06-25T16:43:11",
+    "type": "call_summary",
+    "uniqueid": "1750857123.73485"
+}
+
+{
+    "extension": "266",
+    "privilege": "call,all",
+    "timestamp": "2025-06-28T21:26:07",
+    "type": "monitor_initialized"
+}
+
+{
+    "extension": "266",
+    "privilege": "call,all",
+    "timestamp": "2025-06-28T21:42:04",
+    "type": "monitor_initialized"
+}
+
+{
+    "extension": "266",
+    "privilege": "call,all",
+    "timestamp": "2025-06-28T21:47:42",
+    "type": "monitor_initialized"
+}
+
+{
+    "extension": "266",
+    "privilege": "call,all",
+    "timestamp": "2025-06-28T22:16:57",
+    "type": "monitor_initialized"
+}
+
+{
+    "extension": "266",
+    "privilege": "call,all",
+    "timestamp": "2025-06-28T22:20:12",
+    "type": "monitor_initialized"
+}
+
+{
+    "extension": "266",
+    "privilege": "call,all",
+    "timestamp": "2025-06-28T22:27:17",
+    "type": "monitor_initialized"
+}
+
+{
+    "extension": "266",
+    "privilege": "call,all",
+    "timestamp": "2025-06-28T22:31:02",
+    "type": "monitor_initialized"
+}
+
+{
+    "extension": "266",
+    "privilege": "call,all",
+    "timestamp": "2025-06-28T22:33:17",
+    "type": "monitor_initialized"
+}
+
+{
+    "extension": "266",
+    "privilege": "call,all",
+    "timestamp": "2025-06-28T22:36:20",
+    "type": "monitor_initialized"
+}
+
+{
+    "extension": "266",
+    "privilege": "call,all",
+    "timestamp": "2025-06-28T22:38:31",
+    "type": "monitor_initialized"
+}
+
+{
+    "extension": "266",
+    "privilege": "call,all",
+    "timestamp": "2025-06-28T22:42:00",
+    "type": "monitor_initialized"
+}
+
+{
+    "extension": "266",
+    "privilege": "call,all",
+    "timestamp": "2025-06-28T22:44:01",
+    "type": "monitor_initialized"
+}
+
+{
+    "extension": "266",
+    "privilege": "call,all",
+    "timestamp": "2025-06-28T22:46:26",
+    "type": "monitor_initialized"
+}
+

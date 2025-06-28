@@ -57,6 +57,7 @@ SOURCES       = ../../src/main.cpp \
 		../../src/database/db_connection_pool.cpp \
 		../../src/database/scoped_db_connection.cpp \
 		../../src/database/utils/string_utils.cpp \
+		../../src/httpserver/services/ctt_service/CallReports.cpp \
 		../../src/httpserver/utils/api_response_utils.cpp \
 		../../src/httpserver/utils/jwt_manager.cpp \
 		../../src/httpserver/utils/json_validator.cpp \
@@ -64,11 +65,12 @@ SOURCES       = ../../src/main.cpp \
 		../../src/httpserver/errors/api_error_factory.cpp \
 		../../src/httpserver/request_router.cpp \
 		../../src/httpserver/utils/swagger_doc_generator.cpp \
+		../../src/services/CppAmi/core/AiRequestManager.cpp \
+		../../src/services/CppAmi/core/AudioFileRetrievalScheduler.cpp \
+		../../src/services/CppAmi/core/ICTAudioFileApiHandler.cpp \
 		../../src/utils/static_file_utils.cpp \
 		../../src/utils/utils.cpp \
 		../../src/global.cpp \
-		../../src/httpserver/services/ctt_service/manager_report.cpp \
-		../../src/httpserver/services/ctt_service/user_report.cpp \
 		../../src/httpserver/services/base_api_service.cpp \
 		../../src/httpserver/services/swagger_documentation.cpp \
 		../../src/services/CppAmi/core/AmiClient.cpp \
@@ -92,6 +94,7 @@ SOURCES       = ../../src/main.cpp \
 		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/staticfilecontroller.cpp moc_db_controller.cpp \
 		moc_db_connection_pool.cpp \
 		moc_request_router.cpp \
+		moc_AudioFileRetrievalScheduler.cpp \
 		moc_base_api_service.cpp \
 		moc_AmiClient.cpp \
 		moc_AmiLogger.cpp \
@@ -109,6 +112,7 @@ OBJECTS       = main.o \
 		db_connection_pool.o \
 		scoped_db_connection.o \
 		string_utils.o \
+		CallReports.o \
 		api_response_utils.o \
 		jwt_manager.o \
 		json_validator.o \
@@ -116,11 +120,12 @@ OBJECTS       = main.o \
 		api_error_factory.o \
 		request_router.o \
 		swagger_doc_generator.o \
+		AiRequestManager.o \
+		AudioFileRetrievalScheduler.o \
+		ICTAudioFileApiHandler.o \
 		static_file_utils.o \
 		utils.o \
 		global.o \
-		manager_report.o \
-		user_report.o \
 		base_api_service.o \
 		swagger_documentation.o \
 		AmiClient.o \
@@ -145,6 +150,7 @@ OBJECTS       = main.o \
 		moc_db_controller.o \
 		moc_db_connection_pool.o \
 		moc_request_router.o \
+		moc_AudioFileRetrievalScheduler.o \
 		moc_base_api_service.o \
 		moc_AmiClient.o \
 		moc_AmiLogger.o \
@@ -333,6 +339,7 @@ DIST          = ../Novinsettings.ini \
 		/usr/QT/5.15.17/mkspecs/features/qt_config.prf \
 		/usr/QT/5.15.17/mkspecs/linux-g++/qmake.conf \
 		/usr/QT/5.15.17/mkspecs/features/spec_post.prf \
+		../../.qmake.stash \
 		/usr/QT/5.15.17/mkspecs/features/exclusive_builds.prf \
 		/usr/QT/5.15.17/mkspecs/features/toolchain.prf \
 		/usr/QT/5.15.17/mkspecs/features/default_pre.prf \
@@ -357,6 +364,7 @@ DIST          = ../Novinsettings.ini \
 		../../src/database/db_connection_pool.h \
 		../../src/database/scoped_db_connection.h \
 		../../src/database/utils/string_utils.h \
+		../../src/httpserver/services/ctt_service/CallReports.h \
 		../../src/httpserver/utils/api_response_utils.h \
 		../../src/httpserver/utils/jwt_manager.h \
 		../../src/httpserver/utils/json_validator.h \
@@ -364,11 +372,12 @@ DIST          = ../Novinsettings.ini \
 		../../src/httpserver/errors/api_error_factory.h \
 		../../src/httpserver/request_router.h \
 		../../src/httpserver/utils/swagger_doc_generator.h \
+		../../src/services/CppAmi/core/AiRequestManager.h \
+		../../src/services/CppAmi/core/AudioFileRetrievalScheduler.h \
+		../../src/services/CppAmi/core/ICTAudioFileApiHandler.h \
 		../../src/utils/static_file_utils.h \
 		../../src/utils/utils.h \
 		../../src/global.h \
-		../../src/httpserver/services/ctt_service/manager_report.h \
-		../../src/httpserver/services/ctt_service/user_report.h \
 		../../src/httpserver/services/base_api_service.h \
 		../../src/httpserver/services/swagger_documentation.h \
 		../../src/services/CppAmi/core/AmiClient.h \
@@ -394,6 +403,7 @@ DIST          = ../Novinsettings.ini \
 		../../src/database/db_connection_pool.cpp \
 		../../src/database/scoped_db_connection.cpp \
 		../../src/database/utils/string_utils.cpp \
+		../../src/httpserver/services/ctt_service/CallReports.cpp \
 		../../src/httpserver/utils/api_response_utils.cpp \
 		../../src/httpserver/utils/jwt_manager.cpp \
 		../../src/httpserver/utils/json_validator.cpp \
@@ -401,11 +411,12 @@ DIST          = ../Novinsettings.ini \
 		../../src/httpserver/errors/api_error_factory.cpp \
 		../../src/httpserver/request_router.cpp \
 		../../src/httpserver/utils/swagger_doc_generator.cpp \
+		../../src/services/CppAmi/core/AiRequestManager.cpp \
+		../../src/services/CppAmi/core/AudioFileRetrievalScheduler.cpp \
+		../../src/services/CppAmi/core/ICTAudioFileApiHandler.cpp \
 		../../src/utils/static_file_utils.cpp \
 		../../src/utils/utils.cpp \
 		../../src/global.cpp \
-		../../src/httpserver/services/ctt_service/manager_report.cpp \
-		../../src/httpserver/services/ctt_service/user_report.cpp \
 		../../src/httpserver/services/base_api_service.cpp \
 		../../src/httpserver/services/swagger_documentation.cpp \
 		../../src/services/CppAmi/core/AmiClient.cpp \
@@ -609,6 +620,7 @@ Makefile: ../../CTT.pro /usr/QT/5.15.17/mkspecs/linux-g++/qmake.conf /usr/QT/5.1
 		/usr/QT/5.15.17/mkspecs/features/qt_config.prf \
 		/usr/QT/5.15.17/mkspecs/linux-g++/qmake.conf \
 		/usr/QT/5.15.17/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/QT/5.15.17/mkspecs/features/exclusive_builds.prf \
 		/usr/QT/5.15.17/mkspecs/features/toolchain.prf \
 		/usr/QT/5.15.17/mkspecs/features/default_pre.prf \
@@ -802,6 +814,7 @@ Makefile: ../../CTT.pro /usr/QT/5.15.17/mkspecs/linux-g++/qmake.conf /usr/QT/5.1
 /usr/QT/5.15.17/mkspecs/features/qt_config.prf:
 /usr/QT/5.15.17/mkspecs/linux-g++/qmake.conf:
 /usr/QT/5.15.17/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/QT/5.15.17/mkspecs/features/exclusive_builds.prf:
 /usr/QT/5.15.17/mkspecs/features/toolchain.prf:
 /usr/QT/5.15.17/mkspecs/features/default_pre.prf:
@@ -838,8 +851,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/QT/5.15.17/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../src/database/db_controller.h ../../src/database/db_connection_pool.h ../../src/database/scoped_db_connection.h ../../src/database/utils/string_utils.h ../../src/httpserver/utils/api_response_utils.h ../../src/httpserver/utils/jwt_manager.h ../../src/httpserver/utils/json_validator.h ../../src/httpserver/errors/base_api_error.h ../../src/httpserver/errors/api_error_factory.h ../../src/httpserver/request_router.h ../../src/httpserver/utils/swagger_doc_generator.h ../../src/utils/static_file_utils.h ../../src/utils/utils.h ../../src/global.h ../../src/httpserver/services/ctt_service/manager_report.h ../../src/httpserver/services/ctt_service/user_report.h ../../src/httpserver/services/base_api_service.h ../../src/httpserver/services/swagger_documentation.h ../../src/services/CppAmi/core/AmiClient.h ../../src/services/CppAmi/core/AmiLogger.h ../../src/services/CppAmi/core/AmiTypes.h ../../src/services/CppAmi/core/CallMonitor.h ../../src/services/CppAmi/core/CallMonitorManager.h ../../src/services/CppAmi/utils/AmiDbUtils.h ../../src/services/CppAmi/utils/ICTRequestUtils.h ../../src/services/CppAmi/AmiController.h /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpglobal.h /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httplistener.h /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpconnectionhandler.h /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpconnectionhandlerpool.h /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httprequest.h /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpresponse.h /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpcookie.h /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httprequesthandler.h /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpsession.h /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpsessionstore.h /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/staticfilecontroller.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../src/main.cpp ../../src/database/db_controller.cpp ../../src/database/db_connection_pool.cpp ../../src/database/scoped_db_connection.cpp ../../src/database/utils/string_utils.cpp ../../src/httpserver/utils/api_response_utils.cpp ../../src/httpserver/utils/jwt_manager.cpp ../../src/httpserver/utils/json_validator.cpp ../../src/httpserver/errors/base_api_error.cpp ../../src/httpserver/errors/api_error_factory.cpp ../../src/httpserver/request_router.cpp ../../src/httpserver/utils/swagger_doc_generator.cpp ../../src/utils/static_file_utils.cpp ../../src/utils/utils.cpp ../../src/global.cpp ../../src/httpserver/services/ctt_service/manager_report.cpp ../../src/httpserver/services/ctt_service/user_report.cpp ../../src/httpserver/services/base_api_service.cpp ../../src/httpserver/services/swagger_documentation.cpp ../../src/services/CppAmi/core/AmiClient.cpp ../../src/services/CppAmi/core/AmiLogger.cpp ../../src/services/CppAmi/core/AmiTypes.cpp ../../src/services/CppAmi/core/CallMonitor.cpp ../../src/services/CppAmi/core/CallMonitorManager.cpp ../../src/services/CppAmi/utils/AmiDbUtils.cpp ../../src/services/CppAmi/utils/ICTRequestUtils.cpp ../../src/services/CppAmi/AmiController.cpp /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpglobal.cpp /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httplistener.cpp /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpconnectionhandler.cpp /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpconnectionhandlerpool.cpp /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httprequest.cpp /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpresponse.cpp /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpcookie.cpp /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httprequesthandler.cpp /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpsession.cpp /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpsessionstore.cpp /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/staticfilecontroller.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../src/database/db_controller.h ../../src/database/db_connection_pool.h ../../src/database/scoped_db_connection.h ../../src/database/utils/string_utils.h ../../src/httpserver/services/ctt_service/CallReports.h ../../src/httpserver/utils/api_response_utils.h ../../src/httpserver/utils/jwt_manager.h ../../src/httpserver/utils/json_validator.h ../../src/httpserver/errors/base_api_error.h ../../src/httpserver/errors/api_error_factory.h ../../src/httpserver/request_router.h ../../src/httpserver/utils/swagger_doc_generator.h ../../src/services/CppAmi/core/AiRequestManager.h ../../src/services/CppAmi/core/AudioFileRetrievalScheduler.h ../../src/services/CppAmi/core/ICTAudioFileApiHandler.h ../../src/utils/static_file_utils.h ../../src/utils/utils.h ../../src/global.h ../../src/httpserver/services/base_api_service.h ../../src/httpserver/services/swagger_documentation.h ../../src/services/CppAmi/core/AmiClient.h ../../src/services/CppAmi/core/AmiLogger.h ../../src/services/CppAmi/core/AmiTypes.h ../../src/services/CppAmi/core/CallMonitor.h ../../src/services/CppAmi/core/CallMonitorManager.h ../../src/services/CppAmi/utils/AmiDbUtils.h ../../src/services/CppAmi/utils/ICTRequestUtils.h ../../src/services/CppAmi/AmiController.h /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpglobal.h /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httplistener.h /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpconnectionhandler.h /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpconnectionhandlerpool.h /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httprequest.h /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpresponse.h /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpcookie.h /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httprequesthandler.h /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpsession.h /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpsessionstore.h /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/staticfilecontroller.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../src/main.cpp ../../src/database/db_controller.cpp ../../src/database/db_connection_pool.cpp ../../src/database/scoped_db_connection.cpp ../../src/database/utils/string_utils.cpp ../../src/httpserver/services/ctt_service/CallReports.cpp ../../src/httpserver/utils/api_response_utils.cpp ../../src/httpserver/utils/jwt_manager.cpp ../../src/httpserver/utils/json_validator.cpp ../../src/httpserver/errors/base_api_error.cpp ../../src/httpserver/errors/api_error_factory.cpp ../../src/httpserver/request_router.cpp ../../src/httpserver/utils/swagger_doc_generator.cpp ../../src/services/CppAmi/core/AiRequestManager.cpp ../../src/services/CppAmi/core/AudioFileRetrievalScheduler.cpp ../../src/services/CppAmi/core/ICTAudioFileApiHandler.cpp ../../src/utils/static_file_utils.cpp ../../src/utils/utils.cpp ../../src/global.cpp ../../src/httpserver/services/base_api_service.cpp ../../src/httpserver/services/swagger_documentation.cpp ../../src/services/CppAmi/core/AmiClient.cpp ../../src/services/CppAmi/core/AmiLogger.cpp ../../src/services/CppAmi/core/AmiTypes.cpp ../../src/services/CppAmi/core/CallMonitor.cpp ../../src/services/CppAmi/core/CallMonitorManager.cpp ../../src/services/CppAmi/utils/AmiDbUtils.cpp ../../src/services/CppAmi/utils/ICTRequestUtils.cpp ../../src/services/CppAmi/AmiController.cpp /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpglobal.cpp /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httplistener.cpp /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpconnectionhandler.cpp /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpconnectionhandlerpool.cpp /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httprequest.cpp /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpresponse.cpp /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpcookie.cpp /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httprequesthandler.cpp /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpsession.cpp /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpsessionstore.cpp /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/staticfilecontroller.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -871,9 +884,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/QT/5.15.17/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++11 -Wall -Wextra -dM -E -o moc_predefs.h /usr/QT/5.15.17/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_db_controller.cpp moc_db_connection_pool.cpp moc_request_router.cpp moc_base_api_service.cpp moc_AmiClient.cpp moc_AmiLogger.cpp moc_CallMonitor.cpp moc_CallMonitorManager.cpp moc_AmiController.cpp moc_httplistener.cpp moc_httpconnectionhandler.cpp moc_httpconnectionhandlerpool.cpp moc_httprequesthandler.cpp moc_httpsessionstore.cpp moc_staticfilecontroller.cpp
+compiler_moc_header_make_all: moc_db_controller.cpp moc_db_connection_pool.cpp moc_request_router.cpp moc_AudioFileRetrievalScheduler.cpp moc_base_api_service.cpp moc_AmiClient.cpp moc_AmiLogger.cpp moc_CallMonitor.cpp moc_CallMonitorManager.cpp moc_AmiController.cpp moc_httplistener.cpp moc_httpconnectionhandler.cpp moc_httpconnectionhandlerpool.cpp moc_httprequesthandler.cpp moc_httpsessionstore.cpp moc_staticfilecontroller.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_db_controller.cpp moc_db_connection_pool.cpp moc_request_router.cpp moc_base_api_service.cpp moc_AmiClient.cpp moc_AmiLogger.cpp moc_CallMonitor.cpp moc_CallMonitorManager.cpp moc_AmiController.cpp moc_httplistener.cpp moc_httpconnectionhandler.cpp moc_httpconnectionhandlerpool.cpp moc_httprequesthandler.cpp moc_httpsessionstore.cpp moc_staticfilecontroller.cpp
+	-$(DEL_FILE) moc_db_controller.cpp moc_db_connection_pool.cpp moc_request_router.cpp moc_AudioFileRetrievalScheduler.cpp moc_base_api_service.cpp moc_AmiClient.cpp moc_AmiLogger.cpp moc_CallMonitor.cpp moc_CallMonitorManager.cpp moc_AmiController.cpp moc_httplistener.cpp moc_httpconnectionhandler.cpp moc_httpconnectionhandlerpool.cpp moc_httprequesthandler.cpp moc_httpsessionstore.cpp moc_staticfilecontroller.cpp
 moc_db_controller.cpp: ../../src/database/db_controller.h \
 		../../src/database/db_connection_pool.h \
 		/usr/QT/5.15.17/include/QtCore/QObject \
@@ -1153,6 +1166,74 @@ moc_request_router.cpp: ../../src/httpserver/request_router.h \
 		moc_predefs.h \
 		/usr/QT/5.15.17/bin/moc
 	/usr/QT/5.15.17/bin/moc $(DEFINES) --include /home/amin/Desktop/novin-repo/Novin-Repository-0_5/conversation_to_text/backend_cpp/CTT/etc/debug_build/moc_predefs.h -I/usr/QT/5.15.17/mkspecs/linux-g++ -I/home/amin/Desktop/novin-repo/Novin-Repository-0_5/conversation_to_text/backend_cpp/CTT -I/home/amin/Desktop/novin-repo/othersource/boost_1_86 -I/home/amin/Desktop/novin-repo/othersource/jwt-cpp -I/home/amin/Desktop/novin-repo/othersource/picojson -I/home/amin/Desktop/novin-repo/othersource/FLAC/include -I/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver -I/usr/QT/5.15.17/include -I/usr/QT/5.15.17/include/QtGui -I/usr/QT/5.15.17/include/QtSql -I/usr/QT/5.15.17/include/QtNetwork -I/usr/QT/5.15.17/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../src/httpserver/request_router.h -o moc_request_router.cpp
+
+moc_AudioFileRetrievalScheduler.cpp: ../../src/services/CppAmi/core/AudioFileRetrievalScheduler.h \
+		/usr/QT/5.15.17/include/QtCore/QThread \
+		/usr/QT/5.15.17/include/QtCore/qthread.h \
+		/usr/QT/5.15.17/include/QtCore/qobject.h \
+		/usr/QT/5.15.17/include/QtCore/qobjectdefs.h \
+		/usr/QT/5.15.17/include/QtCore/qnamespace.h \
+		/usr/QT/5.15.17/include/QtCore/qglobal.h \
+		/usr/QT/5.15.17/include/QtCore/qconfig-bootstrapped.h \
+		/usr/QT/5.15.17/include/QtCore/qconfig.h \
+		/usr/QT/5.15.17/include/QtCore/qtcore-config.h \
+		/usr/QT/5.15.17/include/QtCore/qsystemdetection.h \
+		/usr/QT/5.15.17/include/QtCore/qprocessordetection.h \
+		/usr/QT/5.15.17/include/QtCore/qcompilerdetection.h \
+		/usr/QT/5.15.17/include/QtCore/qtypeinfo.h \
+		/usr/QT/5.15.17/include/QtCore/qsysinfo.h \
+		/usr/QT/5.15.17/include/QtCore/qlogging.h \
+		/usr/QT/5.15.17/include/QtCore/qflags.h \
+		/usr/QT/5.15.17/include/QtCore/qatomic.h \
+		/usr/QT/5.15.17/include/QtCore/qbasicatomic.h \
+		/usr/QT/5.15.17/include/QtCore/qatomic_bootstrap.h \
+		/usr/QT/5.15.17/include/QtCore/qgenericatomic.h \
+		/usr/QT/5.15.17/include/QtCore/qatomic_cxx11.h \
+		/usr/QT/5.15.17/include/QtCore/qatomic_msvc.h \
+		/usr/QT/5.15.17/include/QtCore/qglobalstatic.h \
+		/usr/QT/5.15.17/include/QtCore/qmutex.h \
+		/usr/QT/5.15.17/include/QtCore/qnumeric.h \
+		/usr/QT/5.15.17/include/QtCore/qversiontagging.h \
+		/usr/QT/5.15.17/include/QtCore/qobjectdefs_impl.h \
+		/usr/QT/5.15.17/include/QtCore/qstring.h \
+		/usr/QT/5.15.17/include/QtCore/qchar.h \
+		/usr/QT/5.15.17/include/QtCore/qbytearray.h \
+		/usr/QT/5.15.17/include/QtCore/qrefcount.h \
+		/usr/QT/5.15.17/include/QtCore/qarraydata.h \
+		/usr/QT/5.15.17/include/QtCore/qstringliteral.h \
+		/usr/QT/5.15.17/include/QtCore/qstringalgorithms.h \
+		/usr/QT/5.15.17/include/QtCore/qstringview.h \
+		/usr/QT/5.15.17/include/QtCore/qstringbuilder.h \
+		/usr/QT/5.15.17/include/QtCore/qlist.h \
+		/usr/QT/5.15.17/include/QtCore/qalgorithms.h \
+		/usr/QT/5.15.17/include/QtCore/qiterator.h \
+		/usr/QT/5.15.17/include/QtCore/qhashfunctions.h \
+		/usr/QT/5.15.17/include/QtCore/qpair.h \
+		/usr/QT/5.15.17/include/QtCore/qvector.h \
+		/usr/QT/5.15.17/include/QtCore/qcontainertools_impl.h \
+		/usr/QT/5.15.17/include/QtCore/qpoint.h \
+		/usr/QT/5.15.17/include/QtCore/qbytearraylist.h \
+		/usr/QT/5.15.17/include/QtCore/qstringlist.h \
+		/usr/QT/5.15.17/include/QtCore/qregexp.h \
+		/usr/QT/5.15.17/include/QtCore/qstringmatcher.h \
+		/usr/QT/5.15.17/include/QtCore/qcoreevent.h \
+		/usr/QT/5.15.17/include/QtCore/qscopedpointer.h \
+		/usr/QT/5.15.17/include/QtCore/qmetatype.h \
+		/usr/QT/5.15.17/include/QtCore/qvarlengtharray.h \
+		/usr/QT/5.15.17/include/QtCore/qcontainerfwd.h \
+		/usr/QT/5.15.17/include/QtCore/qobject_impl.h \
+		/usr/QT/5.15.17/include/QtCore/qdeadlinetimer.h \
+		/usr/QT/5.15.17/include/QtCore/qelapsedtimer.h \
+		/usr/QT/5.15.17/include/QtCore/QTimer \
+		/usr/QT/5.15.17/include/QtCore/qtimer.h \
+		/usr/QT/5.15.17/include/QtCore/qbasictimer.h \
+		/usr/QT/5.15.17/include/QtCore/QTime \
+		/usr/QT/5.15.17/include/QtCore/qdatetime.h \
+		/usr/QT/5.15.17/include/QtCore/qshareddata.h \
+		/usr/QT/5.15.17/include/QtCore/qhash.h \
+		moc_predefs.h \
+		/usr/QT/5.15.17/bin/moc
+	/usr/QT/5.15.17/bin/moc $(DEFINES) --include /home/amin/Desktop/novin-repo/Novin-Repository-0_5/conversation_to_text/backend_cpp/CTT/etc/debug_build/moc_predefs.h -I/usr/QT/5.15.17/mkspecs/linux-g++ -I/home/amin/Desktop/novin-repo/Novin-Repository-0_5/conversation_to_text/backend_cpp/CTT -I/home/amin/Desktop/novin-repo/othersource/boost_1_86 -I/home/amin/Desktop/novin-repo/othersource/jwt-cpp -I/home/amin/Desktop/novin-repo/othersource/picojson -I/home/amin/Desktop/novin-repo/othersource/FLAC/include -I/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver -I/usr/QT/5.15.17/include -I/usr/QT/5.15.17/include/QtGui -I/usr/QT/5.15.17/include/QtSql -I/usr/QT/5.15.17/include/QtNetwork -I/usr/QT/5.15.17/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../src/services/CppAmi/core/AudioFileRetrievalScheduler.h -o moc_AudioFileRetrievalScheduler.cpp
 
 moc_base_api_service.cpp: ../../src/httpserver/services/base_api_service.h \
 		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httprequest.h \
@@ -1717,6 +1798,7 @@ moc_AmiController.cpp: ../../src/services/CppAmi/AmiController.h \
 		../../src/services/CppAmi/utils/ICTRequestUtils.h \
 		/usr/QT/5.15.17/include/QtCore/QJsonArray \
 		/usr/QT/5.15.17/include/QtCore/qjsonarray.h \
+		../../src/services/CppAmi/utils/AmiDbUtils.h \
 		../../src/database/db_connection_pool.h \
 		/usr/QT/5.15.17/include/QtSql/QSqlDatabase \
 		/usr/QT/5.15.17/include/QtSql/qsqldatabase.h \
@@ -2544,7 +2626,16 @@ main.o: ../../src/main.cpp /usr/QT/5.15.17/include/QtCore/QCoreApplication \
 		../../src/utils/static_file_utils.h \
 		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/staticfilecontroller.h \
 		/usr/QT/5.15.17/include/QtCore/QCache \
-		/usr/QT/5.15.17/include/QtCore/qcache.h
+		/usr/QT/5.15.17/include/QtCore/qcache.h \
+		../../src/services/CppAmi/AmiController.h \
+		../../src/services/CppAmi/core/CallMonitorManager.h \
+		../../src/services/CppAmi/core/CallMonitor.h \
+		../../src/services/CppAmi/core/AmiTypes.h \
+		/usr/QT/5.15.17/include/QtCore/QDateTime \
+		../../src/services/CppAmi/core/AmiClient.h \
+		../../src/services/CppAmi/core/AmiLogger.h \
+		../../src/services/CppAmi/utils/ICTRequestUtils.h \
+		../../src/services/CppAmi/utils/AmiDbUtils.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../src/main.cpp
 
 db_controller.o: ../../src/database/db_controller.cpp ../../src/database/db_controller.h \
@@ -2773,6 +2864,19 @@ db_connection_pool.o: ../../src/database/db_connection_pool.cpp ../../src/databa
 		../../src/httpserver/utils/swagger_doc_generator.h \
 		/usr/QT/5.15.17/include/QtCore/QJsonDocument \
 		/usr/QT/5.15.17/include/QtCore/qjsondocument.h \
+		../../src/services/CppAmi/AmiController.h \
+		../../src/services/CppAmi/core/CallMonitorManager.h \
+		../../src/services/CppAmi/core/CallMonitor.h \
+		/usr/QT/5.15.17/include/QtCore/QFile \
+		../../src/services/CppAmi/core/AmiTypes.h \
+		/usr/QT/5.15.17/include/QtCore/QDateTime \
+		../../src/services/CppAmi/core/AmiClient.h \
+		/usr/QT/5.15.17/include/QtCore/QTimer \
+		/usr/QT/5.15.17/include/QtCore/qtimer.h \
+		/usr/QT/5.15.17/include/QtCore/qbasictimer.h \
+		../../src/services/CppAmi/core/AmiLogger.h \
+		../../src/services/CppAmi/utils/ICTRequestUtils.h \
+		../../src/services/CppAmi/utils/AmiDbUtils.h \
 		/usr/QT/5.15.17/include/QtCore/QDebug \
 		/usr/QT/5.15.17/include/QtCore/QThread \
 		/usr/QT/5.15.17/include/QtCore/qthread.h \
@@ -2923,6 +3027,153 @@ string_utils.o: ../../src/database/utils/string_utils.cpp ../../src/database/uti
 		/usr/QT/5.15.17/include/QtCore/qtextcodec.h \
 		/usr/QT/5.15.17/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o string_utils.o ../../src/database/utils/string_utils.cpp
+
+CallReports.o: ../../src/httpserver/services/ctt_service/CallReports.cpp ../../src/httpserver/services/ctt_service/CallReports.h \
+		../../src/httpserver/services/base_api_service.h \
+		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httprequest.h \
+		/usr/QT/5.15.17/include/QtCore/QByteArray \
+		/usr/QT/5.15.17/include/QtCore/qbytearray.h \
+		/usr/QT/5.15.17/include/QtCore/qrefcount.h \
+		/usr/QT/5.15.17/include/QtCore/qatomic.h \
+		/usr/QT/5.15.17/include/QtCore/qglobal.h \
+		/usr/QT/5.15.17/include/QtCore/qconfig-bootstrapped.h \
+		/usr/QT/5.15.17/include/QtCore/qconfig.h \
+		/usr/QT/5.15.17/include/QtCore/qtcore-config.h \
+		/usr/QT/5.15.17/include/QtCore/qsystemdetection.h \
+		/usr/QT/5.15.17/include/QtCore/qprocessordetection.h \
+		/usr/QT/5.15.17/include/QtCore/qcompilerdetection.h \
+		/usr/QT/5.15.17/include/QtCore/qtypeinfo.h \
+		/usr/QT/5.15.17/include/QtCore/qsysinfo.h \
+		/usr/QT/5.15.17/include/QtCore/qlogging.h \
+		/usr/QT/5.15.17/include/QtCore/qflags.h \
+		/usr/QT/5.15.17/include/QtCore/qglobalstatic.h \
+		/usr/QT/5.15.17/include/QtCore/qmutex.h \
+		/usr/QT/5.15.17/include/QtCore/qnumeric.h \
+		/usr/QT/5.15.17/include/QtCore/qversiontagging.h \
+		/usr/QT/5.15.17/include/QtCore/qbasicatomic.h \
+		/usr/QT/5.15.17/include/QtCore/qatomic_bootstrap.h \
+		/usr/QT/5.15.17/include/QtCore/qgenericatomic.h \
+		/usr/QT/5.15.17/include/QtCore/qatomic_cxx11.h \
+		/usr/QT/5.15.17/include/QtCore/qatomic_msvc.h \
+		/usr/QT/5.15.17/include/QtCore/qnamespace.h \
+		/usr/QT/5.15.17/include/QtCore/qarraydata.h \
+		/usr/QT/5.15.17/include/QtNetwork/QHostAddress \
+		/usr/QT/5.15.17/include/QtNetwork/qhostaddress.h \
+		/usr/QT/5.15.17/include/QtNetwork/qtnetworkglobal.h \
+		/usr/QT/5.15.17/include/QtNetwork/qtnetwork-config.h \
+		/usr/QT/5.15.17/include/QtCore/qpair.h \
+		/usr/QT/5.15.17/include/QtCore/qstring.h \
+		/usr/QT/5.15.17/include/QtCore/qchar.h \
+		/usr/QT/5.15.17/include/QtCore/qstringliteral.h \
+		/usr/QT/5.15.17/include/QtCore/qstringalgorithms.h \
+		/usr/QT/5.15.17/include/QtCore/qstringview.h \
+		/usr/QT/5.15.17/include/QtCore/qstringbuilder.h \
+		/usr/QT/5.15.17/include/QtCore/qshareddata.h \
+		/usr/QT/5.15.17/include/QtCore/qhash.h \
+		/usr/QT/5.15.17/include/QtCore/qiterator.h \
+		/usr/QT/5.15.17/include/QtCore/qlist.h \
+		/usr/QT/5.15.17/include/QtCore/qalgorithms.h \
+		/usr/QT/5.15.17/include/QtCore/qhashfunctions.h \
+		/usr/QT/5.15.17/include/QtCore/qvector.h \
+		/usr/QT/5.15.17/include/QtCore/qcontainertools_impl.h \
+		/usr/QT/5.15.17/include/QtCore/qpoint.h \
+		/usr/QT/5.15.17/include/QtCore/qbytearraylist.h \
+		/usr/QT/5.15.17/include/QtCore/qstringlist.h \
+		/usr/QT/5.15.17/include/QtCore/qregexp.h \
+		/usr/QT/5.15.17/include/QtCore/qstringmatcher.h \
+		/usr/QT/5.15.17/include/QtNetwork/qabstractsocket.h \
+		/usr/QT/5.15.17/include/QtCore/qiodevice.h \
+		/usr/QT/5.15.17/include/QtCore/qobject.h \
+		/usr/QT/5.15.17/include/QtCore/qobjectdefs.h \
+		/usr/QT/5.15.17/include/QtCore/qobjectdefs_impl.h \
+		/usr/QT/5.15.17/include/QtCore/qcoreevent.h \
+		/usr/QT/5.15.17/include/QtCore/qscopedpointer.h \
+		/usr/QT/5.15.17/include/QtCore/qmetatype.h \
+		/usr/QT/5.15.17/include/QtCore/qvarlengtharray.h \
+		/usr/QT/5.15.17/include/QtCore/qcontainerfwd.h \
+		/usr/QT/5.15.17/include/QtCore/qobject_impl.h \
+		/usr/QT/5.15.17/include/QtCore/qdebug.h \
+		/usr/QT/5.15.17/include/QtCore/qmap.h \
+		/usr/QT/5.15.17/include/QtCore/qtextstream.h \
+		/usr/QT/5.15.17/include/QtCore/qlocale.h \
+		/usr/QT/5.15.17/include/QtCore/qvariant.h \
+		/usr/QT/5.15.17/include/QtCore/qset.h \
+		/usr/QT/5.15.17/include/QtCore/qcontiguouscache.h \
+		/usr/QT/5.15.17/include/QtCore/qsharedpointer.h \
+		/usr/QT/5.15.17/include/QtCore/qsharedpointer_impl.h \
+		/usr/QT/5.15.17/include/QtNetwork/QTcpSocket \
+		/usr/QT/5.15.17/include/QtNetwork/qtcpsocket.h \
+		/usr/QT/5.15.17/include/QtCore/QMap \
+		/usr/QT/5.15.17/include/QtCore/QMultiMap \
+		/usr/QT/5.15.17/include/QtCore/QSettings \
+		/usr/QT/5.15.17/include/QtCore/qsettings.h \
+		/usr/QT/5.15.17/include/QtCore/QTemporaryFile \
+		/usr/QT/5.15.17/include/QtCore/qtemporaryfile.h \
+		/usr/QT/5.15.17/include/QtCore/qfile.h \
+		/usr/QT/5.15.17/include/QtCore/qfiledevice.h \
+		/usr/QT/5.15.17/include/QtCore/QUuid \
+		/usr/QT/5.15.17/include/QtCore/quuid.h \
+		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpglobal.h \
+		/usr/QT/5.15.17/include/QtCore/QtGlobal \
+		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpresponse.h \
+		/usr/QT/5.15.17/include/QtCore/QString \
+		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpcookie.h \
+		/usr/QT/5.15.17/include/QtCore/QList \
+		/usr/QT/5.15.17/include/QtCore/QVector \
+		../../src/httpserver/errors/api_error_factory.h \
+		../../src/httpserver/errors/base_api_error.h \
+		/usr/QT/5.15.17/include/QtCore/QJsonObject \
+		/usr/QT/5.15.17/include/QtCore/qjsonobject.h \
+		/usr/QT/5.15.17/include/QtCore/qjsonvalue.h \
+		/usr/QT/5.15.17/include/QtCore/qcborvalue.h \
+		/usr/QT/5.15.17/include/QtCore/qdatetime.h \
+		/usr/QT/5.15.17/include/QtCore/qcborcommon.h \
+		/usr/QT/5.15.17/include/QtCore/qregularexpression.h \
+		/usr/QT/5.15.17/include/QtCore/qurl.h \
+		/usr/QT/5.15.17/include/QtCore/qurlquery.h \
+		../../src/httpserver/utils/swagger_doc_generator.h \
+		/usr/QT/5.15.17/include/QtCore/QObject \
+		/usr/QT/5.15.17/include/QtCore/QJsonArray \
+		/usr/QT/5.15.17/include/QtCore/qjsonarray.h \
+		/usr/QT/5.15.17/include/QtCore/QJsonDocument \
+		/usr/QT/5.15.17/include/QtCore/qjsondocument.h \
+		../../src/httpserver/utils/json_validator.h \
+		/usr/QT/5.15.17/include/QtCore/QJsonValue \
+		/usr/QT/5.15.17/include/QtCore/QDebug \
+		../../src/httpserver/utils/jwt_manager.h \
+		../../src/global.h \
+		../../src/database/db_controller.h \
+		../../src/database/db_connection_pool.h \
+		/usr/QT/5.15.17/include/QtSql/QSqlDatabase \
+		/usr/QT/5.15.17/include/QtSql/qsqldatabase.h \
+		/usr/QT/5.15.17/include/QtSql/qtsqlglobal.h \
+		/usr/QT/5.15.17/include/QtSql/qtsql-config.h \
+		/usr/QT/5.15.17/include/QtCore/QMutex \
+		/usr/QT/5.15.17/include/QtCore/QSemaphore \
+		/usr/QT/5.15.17/include/QtCore/qsemaphore.h \
+		../../src/database/scoped_db_connection.h \
+		/usr/QT/5.15.17/include/QtSql/QSqlQuery \
+		/usr/QT/5.15.17/include/QtSql/qsqlquery.h \
+		../../src/utils/static_file_utils.h \
+		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/staticfilecontroller.h \
+		/usr/QT/5.15.17/include/QtCore/QCache \
+		/usr/QT/5.15.17/include/QtCore/qcache.h \
+		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httprequesthandler.h \
+		../../src/services/CppAmi/AmiController.h \
+		../../src/services/CppAmi/core/CallMonitorManager.h \
+		../../src/services/CppAmi/core/CallMonitor.h \
+		/usr/QT/5.15.17/include/QtCore/QFile \
+		../../src/services/CppAmi/core/AmiTypes.h \
+		/usr/QT/5.15.17/include/QtCore/QDateTime \
+		../../src/services/CppAmi/core/AmiClient.h \
+		/usr/QT/5.15.17/include/QtCore/QTimer \
+		/usr/QT/5.15.17/include/QtCore/qtimer.h \
+		/usr/QT/5.15.17/include/QtCore/qbasictimer.h \
+		../../src/services/CppAmi/core/AmiLogger.h \
+		../../src/services/CppAmi/utils/ICTRequestUtils.h \
+		../../src/services/CppAmi/utils/AmiDbUtils.h \
+		../../src/httpserver/utils/api_response_utils.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o CallReports.o ../../src/httpserver/services/ctt_service/CallReports.cpp
 
 api_response_utils.o: ../../src/httpserver/utils/api_response_utils.cpp ../../src/httpserver/utils/api_response_utils.h \
 		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpresponse.h \
@@ -3148,7 +3399,19 @@ jwt_manager.o: ../../src/httpserver/utils/jwt_manager.cpp ../../src/httpserver/u
 		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httprequesthandler.h \
 		../../src/httpserver/utils/swagger_doc_generator.h \
 		/usr/QT/5.15.17/include/QtCore/QJsonDocument \
-		/usr/QT/5.15.17/include/QtCore/qjsondocument.h
+		/usr/QT/5.15.17/include/QtCore/qjsondocument.h \
+		../../src/services/CppAmi/AmiController.h \
+		../../src/services/CppAmi/core/CallMonitorManager.h \
+		../../src/services/CppAmi/core/CallMonitor.h \
+		/usr/QT/5.15.17/include/QtCore/QFile \
+		../../src/services/CppAmi/core/AmiTypes.h \
+		../../src/services/CppAmi/core/AmiClient.h \
+		/usr/QT/5.15.17/include/QtCore/QTimer \
+		/usr/QT/5.15.17/include/QtCore/qtimer.h \
+		/usr/QT/5.15.17/include/QtCore/qbasictimer.h \
+		../../src/services/CppAmi/core/AmiLogger.h \
+		../../src/services/CppAmi/utils/ICTRequestUtils.h \
+		../../src/services/CppAmi/utils/AmiDbUtils.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o jwt_manager.o ../../src/httpserver/utils/jwt_manager.cpp
 
 json_validator.o: ../../src/httpserver/utils/json_validator.cpp ../../src/httpserver/utils/json_validator.h \
@@ -3550,7 +3813,20 @@ request_router.o: ../../src/httpserver/request_router.cpp ../../src/httpserver/r
 		../../src/utils/static_file_utils.h \
 		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/staticfilecontroller.h \
 		/usr/QT/5.15.17/include/QtCore/QCache \
-		/usr/QT/5.15.17/include/QtCore/qcache.h
+		/usr/QT/5.15.17/include/QtCore/qcache.h \
+		../../src/services/CppAmi/AmiController.h \
+		../../src/services/CppAmi/core/CallMonitorManager.h \
+		../../src/services/CppAmi/core/CallMonitor.h \
+		/usr/QT/5.15.17/include/QtCore/QFile \
+		../../src/services/CppAmi/core/AmiTypes.h \
+		/usr/QT/5.15.17/include/QtCore/QDateTime \
+		../../src/services/CppAmi/core/AmiClient.h \
+		/usr/QT/5.15.17/include/QtCore/QTimer \
+		/usr/QT/5.15.17/include/QtCore/qtimer.h \
+		/usr/QT/5.15.17/include/QtCore/qbasictimer.h \
+		../../src/services/CppAmi/core/AmiLogger.h \
+		../../src/services/CppAmi/utils/ICTRequestUtils.h \
+		../../src/services/CppAmi/utils/AmiDbUtils.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o request_router.o ../../src/httpserver/request_router.cpp
 
 swagger_doc_generator.o: ../../src/httpserver/utils/swagger_doc_generator.cpp ../../src/httpserver/utils/swagger_doc_generator.h \
@@ -3683,8 +3959,249 @@ swagger_doc_generator.o: ../../src/httpserver/utils/swagger_doc_generator.cpp ..
 		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpresponse.h \
 		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpcookie.h \
 		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httprequesthandler.h \
-		../../src/httpserver/utils/jwt_manager.h
+		../../src/httpserver/utils/jwt_manager.h \
+		../../src/services/CppAmi/AmiController.h \
+		../../src/services/CppAmi/core/CallMonitorManager.h \
+		../../src/services/CppAmi/core/CallMonitor.h \
+		/usr/QT/5.15.17/include/QtCore/QFile \
+		../../src/services/CppAmi/core/AmiTypes.h \
+		/usr/QT/5.15.17/include/QtCore/QDateTime \
+		../../src/services/CppAmi/core/AmiClient.h \
+		/usr/QT/5.15.17/include/QtCore/QTimer \
+		/usr/QT/5.15.17/include/QtCore/qtimer.h \
+		/usr/QT/5.15.17/include/QtCore/qbasictimer.h \
+		../../src/services/CppAmi/core/AmiLogger.h \
+		../../src/services/CppAmi/utils/ICTRequestUtils.h \
+		../../src/services/CppAmi/utils/AmiDbUtils.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o swagger_doc_generator.o ../../src/httpserver/utils/swagger_doc_generator.cpp
+
+AiRequestManager.o: ../../src/services/CppAmi/core/AiRequestManager.cpp ../../src/services/CppAmi/core/AiRequestManager.h \
+		/usr/QT/5.15.17/include/QtCore/QJsonObject \
+		/usr/QT/5.15.17/include/QtCore/qjsonobject.h \
+		/usr/QT/5.15.17/include/QtCore/qjsonvalue.h \
+		/usr/QT/5.15.17/include/QtCore/qglobal.h \
+		/usr/QT/5.15.17/include/QtCore/qconfig-bootstrapped.h \
+		/usr/QT/5.15.17/include/QtCore/qconfig.h \
+		/usr/QT/5.15.17/include/QtCore/qtcore-config.h \
+		/usr/QT/5.15.17/include/QtCore/qsystemdetection.h \
+		/usr/QT/5.15.17/include/QtCore/qprocessordetection.h \
+		/usr/QT/5.15.17/include/QtCore/qcompilerdetection.h \
+		/usr/QT/5.15.17/include/QtCore/qtypeinfo.h \
+		/usr/QT/5.15.17/include/QtCore/qsysinfo.h \
+		/usr/QT/5.15.17/include/QtCore/qlogging.h \
+		/usr/QT/5.15.17/include/QtCore/qflags.h \
+		/usr/QT/5.15.17/include/QtCore/qatomic.h \
+		/usr/QT/5.15.17/include/QtCore/qbasicatomic.h \
+		/usr/QT/5.15.17/include/QtCore/qatomic_bootstrap.h \
+		/usr/QT/5.15.17/include/QtCore/qgenericatomic.h \
+		/usr/QT/5.15.17/include/QtCore/qatomic_cxx11.h \
+		/usr/QT/5.15.17/include/QtCore/qatomic_msvc.h \
+		/usr/QT/5.15.17/include/QtCore/qglobalstatic.h \
+		/usr/QT/5.15.17/include/QtCore/qmutex.h \
+		/usr/QT/5.15.17/include/QtCore/qnumeric.h \
+		/usr/QT/5.15.17/include/QtCore/qversiontagging.h \
+		/usr/QT/5.15.17/include/QtCore/qstring.h \
+		/usr/QT/5.15.17/include/QtCore/qchar.h \
+		/usr/QT/5.15.17/include/QtCore/qbytearray.h \
+		/usr/QT/5.15.17/include/QtCore/qrefcount.h \
+		/usr/QT/5.15.17/include/QtCore/qnamespace.h \
+		/usr/QT/5.15.17/include/QtCore/qarraydata.h \
+		/usr/QT/5.15.17/include/QtCore/qstringliteral.h \
+		/usr/QT/5.15.17/include/QtCore/qstringalgorithms.h \
+		/usr/QT/5.15.17/include/QtCore/qstringview.h \
+		/usr/QT/5.15.17/include/QtCore/qstringbuilder.h \
+		/usr/QT/5.15.17/include/QtCore/qshareddata.h \
+		/usr/QT/5.15.17/include/QtCore/qhash.h \
+		/usr/QT/5.15.17/include/QtCore/qiterator.h \
+		/usr/QT/5.15.17/include/QtCore/qlist.h \
+		/usr/QT/5.15.17/include/QtCore/qalgorithms.h \
+		/usr/QT/5.15.17/include/QtCore/qhashfunctions.h \
+		/usr/QT/5.15.17/include/QtCore/qpair.h \
+		/usr/QT/5.15.17/include/QtCore/qvector.h \
+		/usr/QT/5.15.17/include/QtCore/qcontainertools_impl.h \
+		/usr/QT/5.15.17/include/QtCore/qpoint.h \
+		/usr/QT/5.15.17/include/QtCore/qbytearraylist.h \
+		/usr/QT/5.15.17/include/QtCore/qstringlist.h \
+		/usr/QT/5.15.17/include/QtCore/qregexp.h \
+		/usr/QT/5.15.17/include/QtCore/qstringmatcher.h \
+		/usr/QT/5.15.17/include/QtCore/qcborvalue.h \
+		/usr/QT/5.15.17/include/QtCore/qdatetime.h \
+		/usr/QT/5.15.17/include/QtCore/qcborcommon.h \
+		/usr/QT/5.15.17/include/QtCore/qobjectdefs.h \
+		/usr/QT/5.15.17/include/QtCore/qobjectdefs_impl.h \
+		/usr/QT/5.15.17/include/QtCore/qmetatype.h \
+		/usr/QT/5.15.17/include/QtCore/qvarlengtharray.h \
+		/usr/QT/5.15.17/include/QtCore/qcontainerfwd.h \
+		/usr/QT/5.15.17/include/QtCore/qdebug.h \
+		/usr/QT/5.15.17/include/QtCore/qmap.h \
+		/usr/QT/5.15.17/include/QtCore/qtextstream.h \
+		/usr/QT/5.15.17/include/QtCore/qiodevice.h \
+		/usr/QT/5.15.17/include/QtCore/qobject.h \
+		/usr/QT/5.15.17/include/QtCore/qcoreevent.h \
+		/usr/QT/5.15.17/include/QtCore/qscopedpointer.h \
+		/usr/QT/5.15.17/include/QtCore/qobject_impl.h \
+		/usr/QT/5.15.17/include/QtCore/qlocale.h \
+		/usr/QT/5.15.17/include/QtCore/qvariant.h \
+		/usr/QT/5.15.17/include/QtCore/qset.h \
+		/usr/QT/5.15.17/include/QtCore/qcontiguouscache.h \
+		/usr/QT/5.15.17/include/QtCore/qsharedpointer.h \
+		/usr/QT/5.15.17/include/QtCore/qsharedpointer_impl.h \
+		/usr/QT/5.15.17/include/QtCore/qregularexpression.h \
+		/usr/QT/5.15.17/include/QtCore/qurl.h \
+		/usr/QT/5.15.17/include/QtCore/qurlquery.h \
+		/usr/QT/5.15.17/include/QtCore/quuid.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o AiRequestManager.o ../../src/services/CppAmi/core/AiRequestManager.cpp
+
+AudioFileRetrievalScheduler.o: ../../src/services/CppAmi/core/AudioFileRetrievalScheduler.cpp ../../src/services/CppAmi/core/AudioFileRetrievalScheduler.h \
+		/usr/QT/5.15.17/include/QtCore/QThread \
+		/usr/QT/5.15.17/include/QtCore/qthread.h \
+		/usr/QT/5.15.17/include/QtCore/qobject.h \
+		/usr/QT/5.15.17/include/QtCore/qobjectdefs.h \
+		/usr/QT/5.15.17/include/QtCore/qnamespace.h \
+		/usr/QT/5.15.17/include/QtCore/qglobal.h \
+		/usr/QT/5.15.17/include/QtCore/qconfig-bootstrapped.h \
+		/usr/QT/5.15.17/include/QtCore/qconfig.h \
+		/usr/QT/5.15.17/include/QtCore/qtcore-config.h \
+		/usr/QT/5.15.17/include/QtCore/qsystemdetection.h \
+		/usr/QT/5.15.17/include/QtCore/qprocessordetection.h \
+		/usr/QT/5.15.17/include/QtCore/qcompilerdetection.h \
+		/usr/QT/5.15.17/include/QtCore/qtypeinfo.h \
+		/usr/QT/5.15.17/include/QtCore/qsysinfo.h \
+		/usr/QT/5.15.17/include/QtCore/qlogging.h \
+		/usr/QT/5.15.17/include/QtCore/qflags.h \
+		/usr/QT/5.15.17/include/QtCore/qatomic.h \
+		/usr/QT/5.15.17/include/QtCore/qbasicatomic.h \
+		/usr/QT/5.15.17/include/QtCore/qatomic_bootstrap.h \
+		/usr/QT/5.15.17/include/QtCore/qgenericatomic.h \
+		/usr/QT/5.15.17/include/QtCore/qatomic_cxx11.h \
+		/usr/QT/5.15.17/include/QtCore/qatomic_msvc.h \
+		/usr/QT/5.15.17/include/QtCore/qglobalstatic.h \
+		/usr/QT/5.15.17/include/QtCore/qmutex.h \
+		/usr/QT/5.15.17/include/QtCore/qnumeric.h \
+		/usr/QT/5.15.17/include/QtCore/qversiontagging.h \
+		/usr/QT/5.15.17/include/QtCore/qobjectdefs_impl.h \
+		/usr/QT/5.15.17/include/QtCore/qstring.h \
+		/usr/QT/5.15.17/include/QtCore/qchar.h \
+		/usr/QT/5.15.17/include/QtCore/qbytearray.h \
+		/usr/QT/5.15.17/include/QtCore/qrefcount.h \
+		/usr/QT/5.15.17/include/QtCore/qarraydata.h \
+		/usr/QT/5.15.17/include/QtCore/qstringliteral.h \
+		/usr/QT/5.15.17/include/QtCore/qstringalgorithms.h \
+		/usr/QT/5.15.17/include/QtCore/qstringview.h \
+		/usr/QT/5.15.17/include/QtCore/qstringbuilder.h \
+		/usr/QT/5.15.17/include/QtCore/qlist.h \
+		/usr/QT/5.15.17/include/QtCore/qalgorithms.h \
+		/usr/QT/5.15.17/include/QtCore/qiterator.h \
+		/usr/QT/5.15.17/include/QtCore/qhashfunctions.h \
+		/usr/QT/5.15.17/include/QtCore/qpair.h \
+		/usr/QT/5.15.17/include/QtCore/qvector.h \
+		/usr/QT/5.15.17/include/QtCore/qcontainertools_impl.h \
+		/usr/QT/5.15.17/include/QtCore/qpoint.h \
+		/usr/QT/5.15.17/include/QtCore/qbytearraylist.h \
+		/usr/QT/5.15.17/include/QtCore/qstringlist.h \
+		/usr/QT/5.15.17/include/QtCore/qregexp.h \
+		/usr/QT/5.15.17/include/QtCore/qstringmatcher.h \
+		/usr/QT/5.15.17/include/QtCore/qcoreevent.h \
+		/usr/QT/5.15.17/include/QtCore/qscopedpointer.h \
+		/usr/QT/5.15.17/include/QtCore/qmetatype.h \
+		/usr/QT/5.15.17/include/QtCore/qvarlengtharray.h \
+		/usr/QT/5.15.17/include/QtCore/qcontainerfwd.h \
+		/usr/QT/5.15.17/include/QtCore/qobject_impl.h \
+		/usr/QT/5.15.17/include/QtCore/qdeadlinetimer.h \
+		/usr/QT/5.15.17/include/QtCore/qelapsedtimer.h \
+		/usr/QT/5.15.17/include/QtCore/QTimer \
+		/usr/QT/5.15.17/include/QtCore/qtimer.h \
+		/usr/QT/5.15.17/include/QtCore/qbasictimer.h \
+		/usr/QT/5.15.17/include/QtCore/QTime \
+		/usr/QT/5.15.17/include/QtCore/qdatetime.h \
+		/usr/QT/5.15.17/include/QtCore/qshareddata.h \
+		/usr/QT/5.15.17/include/QtCore/qhash.h \
+		/usr/QT/5.15.17/include/QtCore/QDebug \
+		/usr/QT/5.15.17/include/QtCore/qdebug.h \
+		/usr/QT/5.15.17/include/QtCore/qmap.h \
+		/usr/QT/5.15.17/include/QtCore/qtextstream.h \
+		/usr/QT/5.15.17/include/QtCore/qiodevice.h \
+		/usr/QT/5.15.17/include/QtCore/qlocale.h \
+		/usr/QT/5.15.17/include/QtCore/qvariant.h \
+		/usr/QT/5.15.17/include/QtCore/qset.h \
+		/usr/QT/5.15.17/include/QtCore/qcontiguouscache.h \
+		/usr/QT/5.15.17/include/QtCore/qsharedpointer.h \
+		/usr/QT/5.15.17/include/QtCore/qsharedpointer_impl.h \
+		/usr/QT/5.15.17/include/QtSql/QSqlQuery \
+		/usr/QT/5.15.17/include/QtSql/qsqlquery.h \
+		/usr/QT/5.15.17/include/QtSql/qtsqlglobal.h \
+		/usr/QT/5.15.17/include/QtSql/qtsql-config.h \
+		/usr/QT/5.15.17/include/QtSql/qsqldatabase.h \
+		/usr/QT/5.15.17/include/QtSql/QSqlError \
+		/usr/QT/5.15.17/include/QtSql/qsqlerror.h \
+		/usr/QT/5.15.17/include/QtCore/QJsonArray \
+		/usr/QT/5.15.17/include/QtCore/qjsonarray.h \
+		/usr/QT/5.15.17/include/QtCore/qjsonvalue.h \
+		/usr/QT/5.15.17/include/QtCore/qcborvalue.h \
+		/usr/QT/5.15.17/include/QtCore/qcborcommon.h \
+		/usr/QT/5.15.17/include/QtCore/qregularexpression.h \
+		/usr/QT/5.15.17/include/QtCore/qurl.h \
+		/usr/QT/5.15.17/include/QtCore/qurlquery.h \
+		/usr/QT/5.15.17/include/QtCore/quuid.h \
+		/usr/QT/5.15.17/include/QtCore/QDateTime \
+		/usr/QT/5.15.17/include/QtCore/QJsonDocument \
+		/usr/QT/5.15.17/include/QtCore/qjsondocument.h \
+		/usr/QT/5.15.17/include/QtCore/QJsonObject \
+		/usr/QT/5.15.17/include/QtCore/qjsonobject.h \
+		../../src/services/CppAmi/utils/ICTRequestUtils.h \
+		../../src/global.h \
+		/usr/QT/5.15.17/include/QtCore/QSettings \
+		/usr/QT/5.15.17/include/QtCore/qsettings.h \
+		../../src/database/db_controller.h \
+		../../src/database/db_connection_pool.h \
+		/usr/QT/5.15.17/include/QtCore/QObject \
+		/usr/QT/5.15.17/include/QtSql/QSqlDatabase \
+		/usr/QT/5.15.17/include/QtCore/QMutex \
+		/usr/QT/5.15.17/include/QtCore/QSemaphore \
+		/usr/QT/5.15.17/include/QtCore/qsemaphore.h \
+		/usr/QT/5.15.17/include/QtCore/QString \
+		/usr/QT/5.15.17/include/QtCore/QUuid \
+		../../src/database/scoped_db_connection.h \
+		/usr/QT/5.15.17/include/QtCore/QVector \
+		../../src/utils/static_file_utils.h \
+		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/staticfilecontroller.h \
+		/usr/QT/5.15.17/include/QtCore/QCache \
+		/usr/QT/5.15.17/include/QtCore/qcache.h \
+		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpglobal.h \
+		/usr/QT/5.15.17/include/QtCore/QtGlobal \
+		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httprequest.h \
+		/usr/QT/5.15.17/include/QtCore/QByteArray \
+		/usr/QT/5.15.17/include/QtNetwork/QHostAddress \
+		/usr/QT/5.15.17/include/QtNetwork/qhostaddress.h \
+		/usr/QT/5.15.17/include/QtNetwork/qtnetworkglobal.h \
+		/usr/QT/5.15.17/include/QtNetwork/qtnetwork-config.h \
+		/usr/QT/5.15.17/include/QtNetwork/qabstractsocket.h \
+		/usr/QT/5.15.17/include/QtNetwork/QTcpSocket \
+		/usr/QT/5.15.17/include/QtNetwork/qtcpsocket.h \
+		/usr/QT/5.15.17/include/QtCore/QMap \
+		/usr/QT/5.15.17/include/QtCore/QMultiMap \
+		/usr/QT/5.15.17/include/QtCore/QTemporaryFile \
+		/usr/QT/5.15.17/include/QtCore/qtemporaryfile.h \
+		/usr/QT/5.15.17/include/QtCore/qfile.h \
+		/usr/QT/5.15.17/include/QtCore/qfiledevice.h \
+		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpresponse.h \
+		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpcookie.h \
+		/usr/QT/5.15.17/include/QtCore/QList \
+		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httprequesthandler.h \
+		../../src/httpserver/utils/jwt_manager.h \
+		../../src/httpserver/utils/swagger_doc_generator.h \
+		../../src/services/CppAmi/AmiController.h \
+		../../src/services/CppAmi/core/CallMonitorManager.h \
+		../../src/services/CppAmi/core/CallMonitor.h \
+		/usr/QT/5.15.17/include/QtCore/QFile \
+		../../src/services/CppAmi/core/AmiTypes.h \
+		../../src/services/CppAmi/core/AmiClient.h \
+		../../src/services/CppAmi/core/AmiLogger.h \
+		../../src/services/CppAmi/utils/AmiDbUtils.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o AudioFileRetrievalScheduler.o ../../src/services/CppAmi/core/AudioFileRetrievalScheduler.cpp
+
+ICTAudioFileApiHandler.o: ../../src/services/CppAmi/core/ICTAudioFileApiHandler.cpp ../../src/services/CppAmi/core/ICTAudioFileApiHandler.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ICTAudioFileApiHandler.o ../../src/services/CppAmi/core/ICTAudioFileApiHandler.cpp
 
 static_file_utils.o: ../../src/utils/static_file_utils.cpp ../../src/utils/static_file_utils.h \
 		/usr/QT/5.15.17/include/QtCore/QString \
@@ -3810,11 +4327,23 @@ static_file_utils.o: ../../src/utils/static_file_utils.cpp ../../src/utils/stati
 		../../src/httpserver/utils/swagger_doc_generator.h \
 		/usr/QT/5.15.17/include/QtCore/QJsonDocument \
 		/usr/QT/5.15.17/include/QtCore/qjsondocument.h \
+		../../src/services/CppAmi/AmiController.h \
+		../../src/services/CppAmi/core/CallMonitorManager.h \
+		../../src/services/CppAmi/core/CallMonitor.h \
+		/usr/QT/5.15.17/include/QtCore/QFile \
+		../../src/services/CppAmi/core/AmiTypes.h \
+		/usr/QT/5.15.17/include/QtCore/QDateTime \
+		../../src/services/CppAmi/core/AmiClient.h \
+		/usr/QT/5.15.17/include/QtCore/QTimer \
+		/usr/QT/5.15.17/include/QtCore/qtimer.h \
+		/usr/QT/5.15.17/include/QtCore/qbasictimer.h \
+		../../src/services/CppAmi/core/AmiLogger.h \
+		../../src/services/CppAmi/utils/ICTRequestUtils.h \
+		../../src/services/CppAmi/utils/AmiDbUtils.h \
 		/usr/QT/5.15.17/include/QtCore/QCoreApplication \
 		/usr/QT/5.15.17/include/QtCore/qcoreapplication.h \
 		/usr/QT/5.15.17/include/QtCore/qeventloop.h \
 		/usr/QT/5.15.17/include/QtCore/QDebug \
-		/usr/QT/5.15.17/include/QtCore/QFile \
 		/usr/QT/5.15.17/include/QtCore/QFileInfo \
 		/usr/QT/5.15.17/include/QtCore/qfileinfo.h \
 		/usr/QT/5.15.17/include/QtCore/QCryptographicHash \
@@ -3951,14 +4480,21 @@ global.o: ../../src/global.cpp ../../src/global.h \
 		../../src/httpserver/utils/jwt_manager.h \
 		../../src/httpserver/utils/swagger_doc_generator.h \
 		/usr/QT/5.15.17/include/QtCore/QJsonDocument \
-		/usr/QT/5.15.17/include/QtCore/qjsondocument.h
+		/usr/QT/5.15.17/include/QtCore/qjsondocument.h \
+		../../src/services/CppAmi/AmiController.h \
+		../../src/services/CppAmi/core/CallMonitorManager.h \
+		../../src/services/CppAmi/core/CallMonitor.h \
+		/usr/QT/5.15.17/include/QtCore/QFile \
+		../../src/services/CppAmi/core/AmiTypes.h \
+		/usr/QT/5.15.17/include/QtCore/QDateTime \
+		../../src/services/CppAmi/core/AmiClient.h \
+		/usr/QT/5.15.17/include/QtCore/QTimer \
+		/usr/QT/5.15.17/include/QtCore/qtimer.h \
+		/usr/QT/5.15.17/include/QtCore/qbasictimer.h \
+		../../src/services/CppAmi/core/AmiLogger.h \
+		../../src/services/CppAmi/utils/ICTRequestUtils.h \
+		../../src/services/CppAmi/utils/AmiDbUtils.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o global.o ../../src/global.cpp
-
-manager_report.o: ../../src/httpserver/services/ctt_service/manager_report.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o manager_report.o ../../src/httpserver/services/ctt_service/manager_report.cpp
-
-user_report.o: ../../src/httpserver/services/ctt_service/user_report.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o user_report.o ../../src/httpserver/services/ctt_service/user_report.cpp
 
 base_api_service.o: ../../src/httpserver/services/base_api_service.cpp ../../src/httpserver/services/base_api_service.h \
 		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httprequest.h \
@@ -4199,6 +4735,19 @@ swagger_documentation.o: ../../src/httpserver/services/swagger_documentation.cpp
 		/usr/QT/5.15.17/include/QtCore/QCache \
 		/usr/QT/5.15.17/include/QtCore/qcache.h \
 		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httprequesthandler.h \
+		../../src/services/CppAmi/AmiController.h \
+		../../src/services/CppAmi/core/CallMonitorManager.h \
+		../../src/services/CppAmi/core/CallMonitor.h \
+		/usr/QT/5.15.17/include/QtCore/QFile \
+		../../src/services/CppAmi/core/AmiTypes.h \
+		/usr/QT/5.15.17/include/QtCore/QDateTime \
+		../../src/services/CppAmi/core/AmiClient.h \
+		/usr/QT/5.15.17/include/QtCore/QTimer \
+		/usr/QT/5.15.17/include/QtCore/qtimer.h \
+		/usr/QT/5.15.17/include/QtCore/qbasictimer.h \
+		../../src/services/CppAmi/core/AmiLogger.h \
+		../../src/services/CppAmi/utils/ICTRequestUtils.h \
+		../../src/services/CppAmi/utils/AmiDbUtils.h \
 		../../src/httpserver/utils/api_response_utils.h \
 		/usr/QT/5.15.17/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o swagger_documentation.o ../../src/httpserver/services/swagger_documentation.cpp
@@ -4288,14 +4837,8 @@ AmiClient.o: ../../src/services/CppAmi/core/AmiClient.cpp ../../src/services/Cpp
 		/usr/QT/5.15.17/include/QtCore/QTimer \
 		/usr/QT/5.15.17/include/QtCore/qtimer.h \
 		/usr/QT/5.15.17/include/QtCore/qbasictimer.h \
-		../../src/services/CppAmi/core/AmiLogger.h \
-		/usr/QT/5.15.17/include/QtCore/QFile \
-		/usr/QT/5.15.17/include/QtCore/qfile.h \
-		/usr/QT/5.15.17/include/QtCore/qfiledevice.h \
-		/usr/QT/5.15.17/include/QtCore/QDateTime \
-		/usr/QT/5.15.17/include/QtCore/QJsonDocument \
-		/usr/QT/5.15.17/include/QtCore/qjsondocument.h \
-		/usr/QT/5.15.17/include/QtCore/QDebug
+		/usr/QT/5.15.17/include/QtCore/QDebug \
+		/usr/QT/5.15.17/include/QtCore/QDateTime
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o AmiClient.o ../../src/services/CppAmi/core/AmiClient.cpp
 
 AmiLogger.o: ../../src/services/CppAmi/core/AmiLogger.cpp ../../src/services/CppAmi/core/AmiLogger.h \
@@ -4555,7 +5098,58 @@ CallMonitor.o: ../../src/services/CppAmi/core/CallMonitor.cpp ../../src/services
 		/usr/QT/5.15.17/include/QtCore/qjsondocument.h \
 		/usr/QT/5.15.17/include/QtCore/QDir \
 		/usr/QT/5.15.17/include/QtCore/qdir.h \
-		/usr/QT/5.15.17/include/QtCore/qfileinfo.h
+		/usr/QT/5.15.17/include/QtCore/qfileinfo.h \
+		../../src/global.h \
+		/usr/QT/5.15.17/include/QtCore/QSettings \
+		/usr/QT/5.15.17/include/QtCore/qsettings.h \
+		../../src/database/db_controller.h \
+		../../src/database/db_connection_pool.h \
+		/usr/QT/5.15.17/include/QtSql/QSqlDatabase \
+		/usr/QT/5.15.17/include/QtSql/qsqldatabase.h \
+		/usr/QT/5.15.17/include/QtSql/qtsqlglobal.h \
+		/usr/QT/5.15.17/include/QtSql/qtsql-config.h \
+		/usr/QT/5.15.17/include/QtCore/QMutex \
+		/usr/QT/5.15.17/include/QtCore/QSemaphore \
+		/usr/QT/5.15.17/include/QtCore/qsemaphore.h \
+		/usr/QT/5.15.17/include/QtCore/QUuid \
+		../../src/database/scoped_db_connection.h \
+		/usr/QT/5.15.17/include/QtSql/QSqlQuery \
+		/usr/QT/5.15.17/include/QtSql/qsqlquery.h \
+		/usr/QT/5.15.17/include/QtCore/QVector \
+		/usr/QT/5.15.17/include/QtCore/QJsonArray \
+		/usr/QT/5.15.17/include/QtCore/qjsonarray.h \
+		../../src/utils/static_file_utils.h \
+		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/staticfilecontroller.h \
+		/usr/QT/5.15.17/include/QtCore/QCache \
+		/usr/QT/5.15.17/include/QtCore/qcache.h \
+		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpglobal.h \
+		/usr/QT/5.15.17/include/QtCore/QtGlobal \
+		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httprequest.h \
+		/usr/QT/5.15.17/include/QtCore/QByteArray \
+		/usr/QT/5.15.17/include/QtNetwork/QHostAddress \
+		/usr/QT/5.15.17/include/QtNetwork/qhostaddress.h \
+		/usr/QT/5.15.17/include/QtNetwork/qtnetworkglobal.h \
+		/usr/QT/5.15.17/include/QtNetwork/qtnetwork-config.h \
+		/usr/QT/5.15.17/include/QtNetwork/qabstractsocket.h \
+		/usr/QT/5.15.17/include/QtNetwork/QTcpSocket \
+		/usr/QT/5.15.17/include/QtNetwork/qtcpsocket.h \
+		/usr/QT/5.15.17/include/QtCore/QMultiMap \
+		/usr/QT/5.15.17/include/QtCore/QTemporaryFile \
+		/usr/QT/5.15.17/include/QtCore/qtemporaryfile.h \
+		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpresponse.h \
+		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpcookie.h \
+		/usr/QT/5.15.17/include/QtCore/QList \
+		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httprequesthandler.h \
+		../../src/httpserver/utils/jwt_manager.h \
+		../../src/httpserver/utils/swagger_doc_generator.h \
+		../../src/services/CppAmi/AmiController.h \
+		../../src/services/CppAmi/core/CallMonitorManager.h \
+		../../src/services/CppAmi/core/AmiClient.h \
+		/usr/QT/5.15.17/include/QtCore/QTimer \
+		/usr/QT/5.15.17/include/QtCore/qtimer.h \
+		/usr/QT/5.15.17/include/QtCore/qbasictimer.h \
+		../../src/services/CppAmi/utils/ICTRequestUtils.h \
+		../../src/services/CppAmi/utils/AmiDbUtils.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o CallMonitor.o ../../src/services/CppAmi/core/CallMonitor.cpp
 
 CallMonitorManager.o: ../../src/services/CppAmi/core/CallMonitorManager.cpp ../../src/services/CppAmi/core/CallMonitorManager.h \
@@ -4865,10 +5459,159 @@ ICTRequestUtils.o: ../../src/services/CppAmi/utils/ICTRequestUtils.cpp ../../src
 		../../src/httpserver/utils/jwt_manager.h \
 		../../src/httpserver/utils/swagger_doc_generator.h \
 		/usr/QT/5.15.17/include/QtCore/QJsonDocument \
-		/usr/QT/5.15.17/include/QtCore/qjsondocument.h
+		/usr/QT/5.15.17/include/QtCore/qjsondocument.h \
+		../../src/services/CppAmi/AmiController.h \
+		../../src/services/CppAmi/core/CallMonitorManager.h \
+		../../src/services/CppAmi/core/CallMonitor.h \
+		/usr/QT/5.15.17/include/QtCore/QFile \
+		../../src/services/CppAmi/core/AmiTypes.h \
+		/usr/QT/5.15.17/include/QtCore/QDateTime \
+		../../src/services/CppAmi/core/AmiClient.h \
+		/usr/QT/5.15.17/include/QtCore/QTimer \
+		/usr/QT/5.15.17/include/QtCore/qtimer.h \
+		/usr/QT/5.15.17/include/QtCore/qbasictimer.h \
+		../../src/services/CppAmi/core/AmiLogger.h \
+		../../src/services/CppAmi/utils/AmiDbUtils.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ICTRequestUtils.o ../../src/services/CppAmi/utils/ICTRequestUtils.cpp
 
-AmiController.o: ../../src/services/CppAmi/AmiController.cpp 
+AmiController.o: ../../src/services/CppAmi/AmiController.cpp ../../src/services/CppAmi/AmiController.h \
+		/usr/QT/5.15.17/include/QtCore/QObject \
+		/usr/QT/5.15.17/include/QtCore/qobject.h \
+		/usr/QT/5.15.17/include/QtCore/qobjectdefs.h \
+		/usr/QT/5.15.17/include/QtCore/qnamespace.h \
+		/usr/QT/5.15.17/include/QtCore/qglobal.h \
+		/usr/QT/5.15.17/include/QtCore/qconfig-bootstrapped.h \
+		/usr/QT/5.15.17/include/QtCore/qconfig.h \
+		/usr/QT/5.15.17/include/QtCore/qtcore-config.h \
+		/usr/QT/5.15.17/include/QtCore/qsystemdetection.h \
+		/usr/QT/5.15.17/include/QtCore/qprocessordetection.h \
+		/usr/QT/5.15.17/include/QtCore/qcompilerdetection.h \
+		/usr/QT/5.15.17/include/QtCore/qtypeinfo.h \
+		/usr/QT/5.15.17/include/QtCore/qsysinfo.h \
+		/usr/QT/5.15.17/include/QtCore/qlogging.h \
+		/usr/QT/5.15.17/include/QtCore/qflags.h \
+		/usr/QT/5.15.17/include/QtCore/qatomic.h \
+		/usr/QT/5.15.17/include/QtCore/qbasicatomic.h \
+		/usr/QT/5.15.17/include/QtCore/qatomic_bootstrap.h \
+		/usr/QT/5.15.17/include/QtCore/qgenericatomic.h \
+		/usr/QT/5.15.17/include/QtCore/qatomic_cxx11.h \
+		/usr/QT/5.15.17/include/QtCore/qatomic_msvc.h \
+		/usr/QT/5.15.17/include/QtCore/qglobalstatic.h \
+		/usr/QT/5.15.17/include/QtCore/qmutex.h \
+		/usr/QT/5.15.17/include/QtCore/qnumeric.h \
+		/usr/QT/5.15.17/include/QtCore/qversiontagging.h \
+		/usr/QT/5.15.17/include/QtCore/qobjectdefs_impl.h \
+		/usr/QT/5.15.17/include/QtCore/qstring.h \
+		/usr/QT/5.15.17/include/QtCore/qchar.h \
+		/usr/QT/5.15.17/include/QtCore/qbytearray.h \
+		/usr/QT/5.15.17/include/QtCore/qrefcount.h \
+		/usr/QT/5.15.17/include/QtCore/qarraydata.h \
+		/usr/QT/5.15.17/include/QtCore/qstringliteral.h \
+		/usr/QT/5.15.17/include/QtCore/qstringalgorithms.h \
+		/usr/QT/5.15.17/include/QtCore/qstringview.h \
+		/usr/QT/5.15.17/include/QtCore/qstringbuilder.h \
+		/usr/QT/5.15.17/include/QtCore/qlist.h \
+		/usr/QT/5.15.17/include/QtCore/qalgorithms.h \
+		/usr/QT/5.15.17/include/QtCore/qiterator.h \
+		/usr/QT/5.15.17/include/QtCore/qhashfunctions.h \
+		/usr/QT/5.15.17/include/QtCore/qpair.h \
+		/usr/QT/5.15.17/include/QtCore/qvector.h \
+		/usr/QT/5.15.17/include/QtCore/qcontainertools_impl.h \
+		/usr/QT/5.15.17/include/QtCore/qpoint.h \
+		/usr/QT/5.15.17/include/QtCore/qbytearraylist.h \
+		/usr/QT/5.15.17/include/QtCore/qstringlist.h \
+		/usr/QT/5.15.17/include/QtCore/qregexp.h \
+		/usr/QT/5.15.17/include/QtCore/qstringmatcher.h \
+		/usr/QT/5.15.17/include/QtCore/qcoreevent.h \
+		/usr/QT/5.15.17/include/QtCore/qscopedpointer.h \
+		/usr/QT/5.15.17/include/QtCore/qmetatype.h \
+		/usr/QT/5.15.17/include/QtCore/qvarlengtharray.h \
+		/usr/QT/5.15.17/include/QtCore/qcontainerfwd.h \
+		/usr/QT/5.15.17/include/QtCore/qobject_impl.h \
+		../../src/services/CppAmi/core/CallMonitorManager.h \
+		/usr/QT/5.15.17/include/QtCore/QMap \
+		/usr/QT/5.15.17/include/QtCore/qmap.h \
+		/usr/QT/5.15.17/include/QtCore/qdebug.h \
+		/usr/QT/5.15.17/include/QtCore/qhash.h \
+		/usr/QT/5.15.17/include/QtCore/qtextstream.h \
+		/usr/QT/5.15.17/include/QtCore/qiodevice.h \
+		/usr/QT/5.15.17/include/QtCore/qlocale.h \
+		/usr/QT/5.15.17/include/QtCore/qvariant.h \
+		/usr/QT/5.15.17/include/QtCore/qshareddata.h \
+		/usr/QT/5.15.17/include/QtCore/qset.h \
+		/usr/QT/5.15.17/include/QtCore/qcontiguouscache.h \
+		/usr/QT/5.15.17/include/QtCore/qsharedpointer.h \
+		/usr/QT/5.15.17/include/QtCore/qsharedpointer_impl.h \
+		/usr/QT/5.15.17/include/QtCore/QString \
+		/usr/QT/5.15.17/include/QtCore/QJsonObject \
+		/usr/QT/5.15.17/include/QtCore/qjsonobject.h \
+		/usr/QT/5.15.17/include/QtCore/qjsonvalue.h \
+		/usr/QT/5.15.17/include/QtCore/qcborvalue.h \
+		/usr/QT/5.15.17/include/QtCore/qdatetime.h \
+		/usr/QT/5.15.17/include/QtCore/qcborcommon.h \
+		/usr/QT/5.15.17/include/QtCore/qregularexpression.h \
+		/usr/QT/5.15.17/include/QtCore/qurl.h \
+		/usr/QT/5.15.17/include/QtCore/qurlquery.h \
+		/usr/QT/5.15.17/include/QtCore/quuid.h \
+		../../src/services/CppAmi/core/CallMonitor.h \
+		/usr/QT/5.15.17/include/QtCore/QFile \
+		/usr/QT/5.15.17/include/QtCore/qfile.h \
+		/usr/QT/5.15.17/include/QtCore/qfiledevice.h \
+		../../src/services/CppAmi/core/AmiTypes.h \
+		/usr/QT/5.15.17/include/QtCore/QDateTime \
+		../../src/services/CppAmi/core/AmiClient.h \
+		/usr/QT/5.15.17/include/QtNetwork/QTcpSocket \
+		/usr/QT/5.15.17/include/QtNetwork/qtcpsocket.h \
+		/usr/QT/5.15.17/include/QtNetwork/qtnetworkglobal.h \
+		/usr/QT/5.15.17/include/QtNetwork/qtnetwork-config.h \
+		/usr/QT/5.15.17/include/QtNetwork/qabstractsocket.h \
+		/usr/QT/5.15.17/include/QtCore/QTimer \
+		/usr/QT/5.15.17/include/QtCore/qtimer.h \
+		/usr/QT/5.15.17/include/QtCore/qbasictimer.h \
+		../../src/services/CppAmi/core/AmiLogger.h \
+		/usr/QT/5.15.17/include/QtCore/QJsonDocument \
+		/usr/QT/5.15.17/include/QtCore/qjsondocument.h \
+		../../src/services/CppAmi/utils/ICTRequestUtils.h \
+		/usr/QT/5.15.17/include/QtCore/QJsonArray \
+		/usr/QT/5.15.17/include/QtCore/qjsonarray.h \
+		../../src/services/CppAmi/utils/AmiDbUtils.h \
+		../../src/database/db_connection_pool.h \
+		/usr/QT/5.15.17/include/QtSql/QSqlDatabase \
+		/usr/QT/5.15.17/include/QtSql/qsqldatabase.h \
+		/usr/QT/5.15.17/include/QtSql/qtsqlglobal.h \
+		/usr/QT/5.15.17/include/QtSql/qtsql-config.h \
+		/usr/QT/5.15.17/include/QtCore/QMutex \
+		/usr/QT/5.15.17/include/QtCore/QSemaphore \
+		/usr/QT/5.15.17/include/QtCore/qsemaphore.h \
+		/usr/QT/5.15.17/include/QtCore/QUuid \
+		../../src/global.h \
+		/usr/QT/5.15.17/include/QtCore/QSettings \
+		/usr/QT/5.15.17/include/QtCore/qsettings.h \
+		../../src/database/db_controller.h \
+		../../src/database/scoped_db_connection.h \
+		/usr/QT/5.15.17/include/QtSql/QSqlQuery \
+		/usr/QT/5.15.17/include/QtSql/qsqlquery.h \
+		/usr/QT/5.15.17/include/QtCore/QVector \
+		../../src/utils/static_file_utils.h \
+		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/staticfilecontroller.h \
+		/usr/QT/5.15.17/include/QtCore/QCache \
+		/usr/QT/5.15.17/include/QtCore/qcache.h \
+		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpglobal.h \
+		/usr/QT/5.15.17/include/QtCore/QtGlobal \
+		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httprequest.h \
+		/usr/QT/5.15.17/include/QtCore/QByteArray \
+		/usr/QT/5.15.17/include/QtNetwork/QHostAddress \
+		/usr/QT/5.15.17/include/QtNetwork/qhostaddress.h \
+		/usr/QT/5.15.17/include/QtCore/QMultiMap \
+		/usr/QT/5.15.17/include/QtCore/QTemporaryFile \
+		/usr/QT/5.15.17/include/QtCore/qtemporaryfile.h \
+		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpresponse.h \
+		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpcookie.h \
+		/usr/QT/5.15.17/include/QtCore/QList \
+		/home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httprequesthandler.h \
+		../../src/httpserver/utils/jwt_manager.h \
+		../../src/httpserver/utils/swagger_doc_generator.h \
+		/usr/QT/5.15.17/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o AmiController.o ../../src/services/CppAmi/AmiController.cpp
 
 httpglobal.o: /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpglobal.cpp /home/amin/Desktop/novin-repo/othersource/QtWebApp/httpserver/httpglobal.h \
@@ -5850,6 +6593,9 @@ moc_db_connection_pool.o: moc_db_connection_pool.cpp
 
 moc_request_router.o: moc_request_router.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_request_router.o moc_request_router.cpp
+
+moc_AudioFileRetrievalScheduler.o: moc_AudioFileRetrievalScheduler.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_AudioFileRetrievalScheduler.o moc_AudioFileRetrievalScheduler.cpp
 
 moc_base_api_service.o: moc_base_api_service.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_base_api_service.o moc_base_api_service.cpp

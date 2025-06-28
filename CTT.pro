@@ -23,6 +23,7 @@ HEADERS += \
     src/database/db_connection_pool.h \
     src/database/scoped_db_connection.h \
     src/database/utils/string_utils.h \
+    src/httpserver/services/ctt_service/CallReports.h \
     src/httpserver/utils/api_response_utils.h \
     src/httpserver/utils/jwt_manager.h \
     src/httpserver/utils/json_validator.h \
@@ -30,6 +31,9 @@ HEADERS += \
     src/httpserver/errors/api_error_factory.h \
     src/httpserver/request_router.h \
     src/httpserver/utils/swagger_doc_generator.h \
+    src/services/CppAmi/core/AiRequestManager.h \
+    src/services/CppAmi/core/AudioFileRetrievalScheduler.h \
+    src/services/CppAmi/core/ICTAudioFileApiHandler.h \
     src/utils/static_file_utils.h \
     src/utils/utils.h \
     src/global.h
@@ -39,6 +43,7 @@ SOURCES += src/main.cpp \
     src/database/db_connection_pool.cpp \
     src/database/scoped_db_connection.cpp \
     src/database/utils/string_utils.cpp \
+    src/httpserver/services/ctt_service/CallReports.cpp \
     src/httpserver/utils/api_response_utils.cpp \
     src/httpserver/utils/jwt_manager.cpp \
     src/httpserver/utils/json_validator.cpp \
@@ -46,6 +51,9 @@ SOURCES += src/main.cpp \
     src/httpserver/errors/api_error_factory.cpp \
     src/httpserver/request_router.cpp \
     src/httpserver/utils/swagger_doc_generator.cpp \
+    src/services/CppAmi/core/AiRequestManager.cpp \
+    src/services/CppAmi/core/AudioFileRetrievalScheduler.cpp \
+    src/services/CppAmi/core/ICTAudioFileApiHandler.cpp \
     src/utils/static_file_utils.cpp \
     src/utils/utils.cpp \
     src/global.cpp
@@ -53,14 +61,10 @@ SOURCES += src/main.cpp \
 
 
 HEADERS += \
-    src/httpserver/services/ctt_service/manager_report.h \
-    src/httpserver/services/ctt_service/user_report.h \
     src/httpserver/services/base_api_service.h \
     src/httpserver/services/swagger_documentation.h
 
 SOURCES += \
-    src/httpserver/services/ctt_service/manager_report.cpp \
-    src/httpserver/services/ctt_service/user_report.cpp \
     src/httpserver/services/base_api_service.cpp \
     src/httpserver/services/swagger_documentation.cpp
 

@@ -154,6 +154,7 @@ int main(int argc, char*argv[]){
     mySwaggerGenerator->setDescription(myGlobalSettings->value("swagger/description").toString());
     mySwaggerGenerator->writeToFile(myStaticFolderUtils->GetRootStaticPath().append(myGlobalSettings->value("static/swaggerDocsJson").toString()));
 
+    myAmiController = new AmiController();
     app.exec();
 }
 

@@ -4,6 +4,7 @@
 #include <QJsonDocument>
 #include <QDateTime>
 
+#include "../../../global.h"
 CallMonitor::CallMonitor(const QString& targetExtension, bool logRawEvents, QObject* parent)
     : QObject(parent)
     , m_targetExtension(targetExtension)
@@ -147,6 +148,7 @@ void CallMonitor::handleNewState(const QJsonObject& event)
     }
     else if (channelState == "6") { // Up
         summary.status = "answered";
+        summary.startTime = QDateTime::currentDateTime();
         QJsonObject logEvent;
         logEvent["type"] = "call_answered";
         logEvent["timestamp"] = QDateTime::currentDateTime().toString(Qt::ISODate);
@@ -326,4 +328,34 @@ void CallMonitor::storeCallSummary(const CallSummary& summary)
     - causeDescription
     - causeTxt
     */
+
+    //check if the call summery has the status = answered
+    if(summary.status == "answered"){
+        myDbController->storeCallSummary(
+            m_targetExtension,
+            summary.startTime.toSecsSinceEpoch(),
+            summary.endTime.toSecsSinceEpoch(),
+            summary.startTime.secsTo(summary.endTime),
+            summary.otherExtensionNumber,
+            summary.direction,
+            summary.callType,
+            summary.status,
+            summary.uniqueId
+            );
+
+        // emit signal to retrieve the file from apiserver
+    }
+    // TODO: suggestion to tack un awnsered calls
+
+
+
+
+
+
+
+
+
+
+
+
 } 

@@ -15,10 +15,53 @@
     },
     "openapi": "3.0.0",
     "paths": {
+        "/{language}/users": {
+            "get": {
+                "parameters": [
+                    {
+                        "description": "language identifier",
+                        "example": "en",
+                        "in": "path",
+                        "name": "language",
+                        "required": true,
+                        "schema": {
+                            "format": "iso639-1",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                }
+                            }
+                        },
+                        "description": "Successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": [
+                        ]
+                    }
+                ],
+                "summary": "Lists the available users to be monitored by the logged in user",
+                "tags": [
+                    "Users"
+                ]
+            }
+        }
     },
     "servers": [
         {
             "url": "http://127.0.0.1:8002"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Users"
         }
     ]
 }

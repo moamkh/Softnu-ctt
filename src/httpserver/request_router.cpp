@@ -17,7 +17,7 @@ ApiRequestMapper::ApiRequestMapper(QObject *parent):
 
     // swagger doc apis
     SwaggerDocService = new SwaggerDocApi();
-
+    MonitorableUsersListService = new MonitorableUsersListAPI();
     qInfo() << "Initializing services Done.";
 
     MapServices();
@@ -30,6 +30,8 @@ void ApiRequestMapper::MapServices()
 
     // swagger documentation service
     m_service_map.insert(SwaggerDocService->getPath(),SwaggerDocService);
+    m_service_map.insert(MonitorableUsersListService->getPath(),MonitorableUsersListService);
+
 
     qInfo() << "Done. Mapping services.";
 }
@@ -54,11 +56,6 @@ void ApiRequestMapper::service(HttpRequest &request, HttpResponse &response)
     if (method==HTTP_OPTIONS_METHOD){
         response.setStatus(204,"No Content");
         response.write("",true);
-        return;
-    }
-
-    if(path.startsWith(myGlobalSettings->value("static/profilePictures").toByteArray())){
-        myStaticFileController->service(request,response);
         return;
     }
 

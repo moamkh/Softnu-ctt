@@ -29,12 +29,16 @@ private slots:
     void onError(QAbstractSocket::SocketError socketError);
     void onReadyRead();
     void onReconnectTimeout();
+    void onInactivityTimeout();
 
 private:
     QTcpSocket* m_socket;
+    QString m_host;
+    quint16 m_port;
     QString m_username;
     QString m_password;
     QTimer* m_reconnectTimer;
+    QTimer* m_inactivityTimer;
     bool m_authenticated;
     QByteArray m_buffer;
 
@@ -43,6 +47,7 @@ private:
     void handleResponse(const QByteArray& response);
     void startReconnectTimer();
     void stopReconnectTimer();
+    void configureKeepAlive();
 };
 
-#endif // AMICLIENT_HPP 
+#endif // AMICLIENT_HPP

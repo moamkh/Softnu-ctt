@@ -7,6 +7,7 @@
 #include "staticfilecontroller.h"
 #include "httpserver/utils/jwt_manager.h"
 #include "httpserver/utils/swagger_doc_generator.h"
+#include "services/CppAmi/AmiController.h"
 
 using stefanfrings::StaticFileController;
 
@@ -16,6 +17,6 @@ extern StaticFolderUtils* myStaticFolderUtils;
 extern StaticFileController* myStaticFileController;
 extern SwaggerGenerator* mySwaggerGenerator;
 extern JWTManager* myJWTManager;
-
+extern AmiController* myAmiController;
 
 #endif // GLOBAL_H

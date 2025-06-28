@@ -7,6 +7,8 @@
 #include <QObject>
 #include "services/base_api_service.h"
 #include "services/swagger_documentation.h"
+#include "services/ctt_service/CallReports.h"
+
 using stefanfrings::HttpRequest;
 using stefanfrings::HttpResponse;
 using stefanfrings::HttpRequestHandler;
@@ -29,6 +31,7 @@ private:
 
     // swagger documentation apis
     SwaggerDocApi* SwaggerDocService;
+    MonitorableUsersListAPI* MonitorableUsersListService;
 
 
 

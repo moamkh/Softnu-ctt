@@ -8,5 +8,5 @@ DbController* myDbController;
 StaticFolderUtils* myStaticFolderUtils;
 StaticFileController* myStaticFileController;
 SwaggerGenerator* mySwaggerGenerator;
-
+AmiController* myAmiController;
 
