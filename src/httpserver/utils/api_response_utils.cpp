@@ -38,6 +38,13 @@ void ApiResponseUtils::SendJsonError(
     response.write(CreateJsonByteArray(jsonObject),true);
 }
 
+void ApiResponseUtils::SendAudioFile(HttpResponse &response, QByteArray &audioBinary, int status_code)
+{
+    response.setStatus(status_code);
+    response.setHeader("Content-Type","audio/wav");
+    response.write(audioBinary,true);
+}
+
 QByteArray ApiResponseUtils::CreateJsonByteArray(QJsonObject &object)
 {
     // Create a QJsonDocument from the QJsonObject

@@ -26,6 +26,11 @@ public:
             BaseApiError errorObject,
             QString lang = "fa"
             );
+    static void SendAudioFile(
+            HttpResponse& response,
+            QByteArray& audioBinary,
+            int status_code =200
+            );
 private:
     static QByteArray CreateJsonByteArray(QJsonObject& object);
 

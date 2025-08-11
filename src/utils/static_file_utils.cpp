@@ -10,6 +10,7 @@
 #include <QCryptographicHash>
 #include <QRandomGenerator>
 #include <QDir>
+
 // Function to set full permissions for a file or directory
 bool setFullPermissions(const QString &path) {
     QFile file(path);
@@ -55,9 +56,9 @@ bool setPermissionsRecursive(const QString &dirPath) {
 
     return true;
 }
+
 StaticFolderUtils::StaticFolderUtils()
-    :PROFILE_PICTURE_PATH(myGlobalSettings->value(INI_SETTINGS_PROFILE_PICTURE_PATH_KEY).toString()),
-    RAG_FILES_PATH(myGlobalSettings->value(INI_SETTINGS_RAG_FILE_PATH_KEY).toString()){
+    :AUDIO_FILE_PATH(myGlobalSettings->value(INI_SETTINGS_AUDIO_FILE_PATH_KEY).toString()){
 
     qInfo() << "Initializing Statitc Folder Utils.";
 
@@ -116,7 +117,7 @@ bool StaticFolderUtils::RemoveStaticFile(QString &filePath)
         return false;  // Return false if the file could not be removed
     }
 
-    // If the file was successfully removed
+// If the file was successfully removed
 #ifdef QT_DEBUG
     qDebug() << "File" << filePath << "was successfully removed.";
 #endif
@@ -124,49 +125,30 @@ bool StaticFolderUtils::RemoveStaticFile(QString &filePath)
     return true;  // Return true if the file was successfully removed
 }
 
-
-QString StaticFolderUtils::GetProfilePicFolderPath()
+QString StaticFolderUtils::GetAudioFileFolderPath()
 {
-    QString  profilePicFolderPath = StaticFolderUtils::GetRootStaticPath();
-    profilePicFolderPath.append(PROFILE_PICTURE_PATH);
-    // Return the full path to the image file
-    return profilePicFolderPath;
-}
+    // Get the root path
+    QString rootPath = GetRootStaticPath();
 
-QString StaticFolderUtils::CreateNewProfilePicPath(QString& username)
-{
-    // Generate a random salt
-    QByteArray salt;
-    int saltLength = 16 ;
-    salt.resize(saltLength);
-    for (int i = 0; i < saltLength; ++i) {
-        salt[i] = static_cast<char>(QRandomGenerator::global()->bounded(256));
+    // The AUDIO_FILE_PATH from the settings gives the subdirectory
+    // We use QDir to safely join the paths
+    QDir dir(rootPath);
+    QString fullAudioPath = dir.filePath(AUDIO_FILE_PATH);
+
+    // Ensure the audio directory exists, create it if not.
+    QDir audioDir(fullAudioPath);
+    if (!audioDir.exists()) {
+        qDebug() << "Audio directory does not exist. Creating at:" << fullAudioPath;
+        if (!audioDir.mkpath(".")) {
+            qWarning() << "Failed to create audio directory path:" << fullAudioPath;
+            return QString(); // Return empty string on failure
+        }
     }
-
-    // Append the salt to the input string
-    QByteArray saltedUsername = username.toUtf8() + salt;
-
-    // Create a QCryptographicHash object with the specified algorithm
-    QCryptographicHash hash(QCryptographicHash::Md5);
-
-    // Add the salted input data to be hashed
-    hash.addData(saltedUsername);
-
-    // Retrieve the result as a QByteArray and Convert the hash result to a hexadecimal string
-    QString _hashed_salted_username = hash.result().toHex();
-
-    return GetProfilePicFolderPath().append("/"+_hashed_salted_username);
+    return fullAudioPath;
 }
 
-QString StaticFolderUtils::GetRagFileFolderPath()
-{
-    QString  ragFilePath = StaticFolderUtils::GetRootStaticPath();
-    ragFilePath.append(RAG_FILES_PATH);
-    // Return the full path to the image file
-    return ragFilePath;
-}
 
-QString StaticFolderUtils::CreateNewRagFilePath(QString filename)
+QString StaticFolderUtils::CreateNewAudioFilePath(QString filename)
 {
     // Generate a random salt
     QByteArray salt;
@@ -188,11 +170,107 @@ QString StaticFolderUtils::CreateNewRagFilePath(QString filename)
     // Retrieve the result as a QByteArray and Convert the hash result to a hexadecimal string
     QString _hashed_salted_fileName = hash.result().toHex();
 
-    return GetRagFileFolderPath().append("/"+_hashed_salted_fileName);
+    QDir audioDir(GetAudioFileFolderPath());
+    return audioDir.filePath(_hashed_salted_fileName);
 }
 
-bool StaticFolderUtils::RagFileExists(QString path)
+bool StaticFolderUtils::AudioFileExists(const QString& filename)
 {
-    QString fullPath = GetRootStaticPath().append(path);
+    QDir audioDir(GetAudioFileFolderPath());
+    QString fullPath = audioDir.filePath(filename);
     return FileExists(fullPath);
+}
+
+// --- NEW FUNCTIONS ---
+
+/**
+ * @brief Creates a new audio file with the given name and content in the audio folder.
+ * @param filename The name of the file to create (e.g., "my_sound.wav").
+ * @param audioData The binary data of the audio file.
+ * @return True if the file was created successfully, false otherwise.
+ */
+bool StaticFolderUtils::CreateAudioFile(const QString &filename, const QByteArray &audioData)
+{
+    QString audioFolderPath = GetAudioFileFolderPath();
+
+    if (audioFolderPath.isEmpty()) {
+        qWarning() << "Could not create audio file, audio folder path is invalid.";
+        return false;
+    }
+
+    QDir audioDir(audioFolderPath);
+    QString fullPath = audioDir.filePath(filename);
+
+    QFile file(fullPath);
+    if (!file.open(QIODevice::WriteOnly)) {
+        qWarning() << "Failed to open file for writing:" << fullPath << "Error:" << file.errorString();
+        return false;
+    }
+
+    qint64 bytesWritten = file.write(audioData);
+    file.close();
+
+    if (bytesWritten != audioData.size()) {
+        qWarning() << "Failed to write all data to file:" << fullPath << ". Wrote" << bytesWritten << "of" << audioData.size();
+        // Clean up partially written file
+        RemoveStaticFile(fullPath);
+        return false;
+    }
+
+    qDebug() << "Successfully created audio file:" << fullPath;
+    return true;
+}
+
+/**
+ * @brief Deletes an audio file from the audio folder.
+ * @param filename The name of the file to delete.
+ * @return True if the file was deleted successfully, false otherwise.
+ */
+bool StaticFolderUtils::DeleteAudioFile(const QString &filename)
+{
+    QString audioFolderPath = GetAudioFileFolderPath();
+    if (audioFolderPath.isEmpty()) {
+        qWarning() << "Could not delete audio file, audio folder path is invalid.";
+        return false;
+    }
+
+    QDir audioDir(audioFolderPath);
+    QString fullPath = audioDir.filePath(filename);
+
+    return RemoveStaticFile(fullPath);
+}
+
+/**
+ * @brief Retrieves the content of an audio file.
+ * @param filename The name of the file to read.
+ * @return A QByteArray with the file's content. Returns an empty QByteArray if the file
+ *         cannot be found or read.
+ */
+QByteArray StaticFolderUtils::GetAudioFile(const QString &filename)
+{
+    QString audioFolderPath = GetAudioFileFolderPath();
+    if (audioFolderPath.isEmpty()) {
+        qWarning() << "Could not get audio file, audio folder path is invalid.";
+        return QByteArray();
+    }
+
+    QDir audioDir(audioFolderPath);
+    QString fullPath = audioDir.filePath(filename);
+
+    if (!FileExists(fullPath)) {
+        qWarning() << "Audio file does not exist:" << fullPath;
+        return QByteArray(); // Return empty array
+    }
+
+    QFile file(fullPath);
+    if (!file.open(QIODevice::ReadOnly)) {
+        qWarning() << "Failed to open audio file for reading:" << fullPath << "Error:" << file.errorString();
+        return QByteArray(); // Return empty array
+    }
+
+    QByteArray audioData = file.readAll();
+    file.close();
+
+    qDebug() << "Successfully read" << audioData.size() << "bytes from audio file:" << fullPath;
+    return audioData;
 }

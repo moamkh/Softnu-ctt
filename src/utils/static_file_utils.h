@@ -1,10 +1,12 @@
 #ifndef STATIC_FILE_UTILS_H
 #define STATIC_FILE_UTILS_H
 
-#define INI_SETTINGS_PROFILE_PICTURE_PATH_KEY "static/profilePictures"
-#define INI_SETTINGS_RAG_FILE_PATH_KEY "static/ragFiles"
+#define INI_SETTINGS_AUDIO_FILE_PATH_KEY "static/audioFiles"
 #define INI_SETTINGS_ROOT_STATIC_FOLDER_PATH_KEY "files/path"
+
 #include <QString>
+#include <QByteArray> // Include for QByteArray
+
 class StaticFolderUtils{
 public:
     explicit StaticFolderUtils();
@@ -13,17 +15,18 @@ public:
     bool FileExists(QString& filePath);
     bool RemoveStaticFile(QString& filePath);
 
-    //profile picture functios
-    QString GetProfilePicFolderPath();
-    QString CreateNewProfilePicPath(QString& username);
+    //audio file functions
+    QString GetAudioFileFolderPath();
+    QString CreateNewAudioFilePath(QString filename);
+    bool AudioFileExists(const QString& filename);
 
-    //rag file functions
-    QString GetRagFileFolderPath();
-    QString CreateNewRagFilePath(QString filename);
-    bool RagFileExists(QString path);
+    // New functions
+    bool CreateAudioFile(const QString& filename, const QByteArray& audioData);
+    bool DeleteAudioFile(const QString& filename);
+    QByteArray GetAudioFile(const QString& filename);
+
 private:
-    const QString PROFILE_PICTURE_PATH;
-    const QString RAG_FILES_PATH;
+    const QString AUDIO_FILE_PATH;
     QString ROOT_STATIC_PATH ;
 };
 

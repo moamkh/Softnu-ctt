@@ -1,4 +1,4 @@
-Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Libidn2
 Upstream-Contact: Simon Josefsson <simon@josefsson.org>
 Source: https://www.gnu.org/software/libidn/#libidn2

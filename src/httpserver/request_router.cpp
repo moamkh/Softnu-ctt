@@ -3,6 +3,7 @@
 #include <QList>
 #include "utils/api_response_utils.h"
 #include "errors/api_error_factory.h"
+
 #include "../global.h"
 
 
@@ -18,6 +19,7 @@ ApiRequestMapper::ApiRequestMapper(QObject *parent):
     // swagger doc apis
     SwaggerDocService = new SwaggerDocApi();
     MonitorableUsersListService = new MonitorableUsersListAPI();
+    DownloadUserConversationService = new DownloadUserConversationApi();
     qInfo() << "Initializing services Done.";
 
     MapServices();
@@ -30,8 +32,10 @@ void ApiRequestMapper::MapServices()
 
     // swagger documentation service
     m_service_map.insert(SwaggerDocService->getPath(),SwaggerDocService);
-    m_service_map.insert(MonitorableUsersListService->getPath(),MonitorableUsersListService);
 
+    //
+    m_service_map.insert(MonitorableUsersListService->getPath(),MonitorableUsersListService);
+    m_service_map.insert(DownloadUserConversationService->getPath(),DownloadUserConversationService);
 
     qInfo() << "Done. Mapping services.";
 }

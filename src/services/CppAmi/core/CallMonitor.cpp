@@ -4,7 +4,9 @@
 #include <QJsonDocument>
 #include <QDateTime>
 
+
 #include "../../../global.h"
+
 CallMonitor::CallMonitor(const QString& targetExtension, bool logRawEvents, QObject* parent)
     : QObject(parent)
     , m_targetExtension(targetExtension)
@@ -210,6 +212,13 @@ void CallMonitor::handleHangupEvent(const QJsonObject& event)
     }
 
     CallSummary& summary = m_activeCalls[channel];
+    summary.uniqueId = event["Uniqueid"].toString();
+    summary.linkedId = event["Linkedid"].toString();
+    summary.channel = channel;
+    summary.callerIdNum = event["CallerIDNum"].toString();
+    summary.callerIdName = event["CallerIDName"].toString();
+    summary.connectedLineNum = event["ConnectedLineNum"].toString();
+    summary.connectedLineName = event["ConnectedLineName"].toString();
     summary.endTime = QDateTime::currentDateTime();
     summary.cause = event["Cause"].toString();
     summary.causeDescription = event["CauseDescription"].toString();
@@ -227,7 +236,7 @@ void CallMonitor::handleHangupEvent(const QJsonObject& event)
     }
 
     // Determine call type based on extension numbers
-    bool isInternal = summary.extensionNumber.length() < 9 && summary.otherExtensionNumber.length() < 9;
+    bool isInternal = summary.extensionNumber.length() <= 3 && summary.otherExtensionNumber.length() <= 3;
     summary.callType = isInternal ? "internal" : "external";
 
     // Log call ended event
@@ -251,8 +260,10 @@ void CallMonitor::handleHangupEvent(const QJsonObject& event)
     logCallEvent(summaryEvent);
     emit callEnded(channel, summaryEvent);
 
-    // Store call summary in database
-    storeCallSummary(summary);
+    if(event["Context"].toString() == "macro-dial-one" || event["Context"].toString() == "from-internal" ){
+        // Store call summary in database
+        storeCallSummary(summary);
+    }
 
     // Clean up call data
     m_activeCalls.remove(channel);
@@ -328,34 +339,36 @@ void CallMonitor::storeCallSummary(const CallSummary& summary)
     - causeDescription
     - causeTxt
     */
-
+    qWarning() << "Storing call summary for unique id : " << summary.uniqueId;
     //check if the call summery has the status = answered
-    if(summary.status == "answered"){
-        myDbController->storeCallSummary(
+    int call_duration = summary.startTime.secsTo(summary.endTime);
+    if(summary.status == "answered" && summary.callType=="external" && call_duration > 10){
+        DbResault dbRes = myDbController->storeCallSummary(
             m_targetExtension,
             summary.startTime.toSecsSinceEpoch(),
             summary.endTime.toSecsSinceEpoch(),
-            summary.startTime.secsTo(summary.endTime),
+            call_duration,
             summary.otherExtensionNumber,
             summary.direction,
             summary.callType,
             summary.status,
-            summary.uniqueId
+            summary.linkedId
             );
 
         // emit signal to retrieve the file from apiserver
+        if(dbRes.status){
+            qint64 call_summary_id = dbRes.data.value("call_summary_id").toInt();
+            QString audio_unique_id = summary.linkedId;
+            RequestPayload reqPayload;
+            reqPayload.call_summary_id = call_summary_id;
+            reqPayload.unique_id = audio_unique_id;
+            emit sendRequestToAi(reqPayload);
+        }
+    }else{
+        qWarning() << "Call is not external or awnsered and is not in a vald duration : ";
+        qWarning() << "callee: " << summary.otherExtensionNumber;
+        qWarning() << "ext no: " << summary.extensionNumber;
+        qWarning() << "call duration: " << call_duration;
     }
     // TODO: suggestion to tack un awnsered calls
-
-
-
-
-
-
-
-
-
-
-
-
 } 

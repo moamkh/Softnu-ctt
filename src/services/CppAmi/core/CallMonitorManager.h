@@ -6,6 +6,7 @@
 #include <QString>
 #include <QJsonObject>
 #include "CallMonitor.h"
+#include "../ai_backend_service/ai_request_manager.h"
 
 class CallMonitorManager : public QObject {
     Q_OBJECT
@@ -24,6 +25,7 @@ signals:
 private:
     QMap<QString, CallMonitor*> m_callMonitors;
     bool m_logRawEvents;
+    AiBackendService::RequestManager* m_ai_request_manager;
 };
 
-#endif // CALLMONITORMANAGER_HPP 
+#endif // CALLMONITORMANAGER_HPP

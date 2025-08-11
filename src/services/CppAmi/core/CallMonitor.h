@@ -9,6 +9,9 @@
 
 #include "AmiTypes.h"
 
+#include "../ai_backend_service/ai_request_types.h"
+using AiBackendService::RequestPayload;
+
 struct CallSummary {
     QString uniqueId;
     QString linkedId;
@@ -50,6 +53,7 @@ signals:
     void callStarted(const QString& channel, const QJsonObject& callData);
     void callEnded(const QString& channel, const QJsonObject& callData);
     void callStateChanged(const QString& channel, const QString& state);
+    void sendRequestToAi(RequestPayload reqPayload);
 
 private:
     QString m_targetExtension;

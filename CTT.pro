@@ -31,9 +31,6 @@ HEADERS += \
     src/httpserver/errors/api_error_factory.h \
     src/httpserver/request_router.h \
     src/httpserver/utils/swagger_doc_generator.h \
-    src/services/CppAmi/core/AiRequestManager.h \
-    src/services/CppAmi/core/AudioFileRetrievalScheduler.h \
-    src/services/CppAmi/core/ICTAudioFileApiHandler.h \
     src/utils/static_file_utils.h \
     src/utils/utils.h \
     src/global.h
@@ -51,9 +48,6 @@ SOURCES += src/main.cpp \
     src/httpserver/errors/api_error_factory.cpp \
     src/httpserver/request_router.cpp \
     src/httpserver/utils/swagger_doc_generator.cpp \
-    src/services/CppAmi/core/AiRequestManager.cpp \
-    src/services/CppAmi/core/AudioFileRetrievalScheduler.cpp \
-    src/services/CppAmi/core/ICTAudioFileApiHandler.cpp \
     src/utils/static_file_utils.cpp \
     src/utils/utils.cpp \
     src/global.cpp
@@ -77,7 +71,10 @@ HEADERS += \
     src/services/CppAmi/core/CallMonitorManager.h \
     src/services/CppAmi/utils/AmiDbUtils.h \
     src/services/CppAmi/utils/ICTRequestUtils.h \
-    src/services/CppAmi/AmiController.h
+    src/services/CppAmi/AmiController.h \
+    src/services/CppAmi/ai_backend_service/ai_request_manager.h \
+    src/services/CppAmi/ai_backend_service/ai_request_tasks.h \
+    src/services/CppAmi/ai_backend_service/ai_request_types.h \
 
 SOURCES += \
     src/services/CppAmi/core/AmiClient.cpp \
@@ -87,7 +84,10 @@ SOURCES += \
     src/services/CppAmi/core/CallMonitorManager.cpp \
     src/services/CppAmi/utils/AmiDbUtils.cpp \
     src/services/CppAmi/utils/ICTRequestUtils.cpp \
-    src/services/CppAmi/AmiController.cpp
+    src/services/CppAmi/AmiController.cpp \
+    src/services/CppAmi/ai_backend_service/ai_request_manager.cpp \
+    src/services/CppAmi/ai_backend_service/ai_request_tasks.cpp \
+    src/services/CppAmi/ai_backend_service/ai_request_types.cpp \
 
 
 

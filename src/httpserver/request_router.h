@@ -15,6 +15,7 @@ using stefanfrings::HttpRequestHandler;
 
 class ApiRequestMapper : public HttpRequestHandler {
     Q_OBJECT
+
 public:
     ApiRequestMapper(QObject* parent = nullptr);
     void service (HttpRequest& request,HttpResponse& response);
@@ -32,7 +33,7 @@ private:
     // swagger documentation apis
     SwaggerDocApi* SwaggerDocService;
     MonitorableUsersListAPI* MonitorableUsersListService;
-
+    DownloadUserConversationApi* DownloadUserConversationService;
 
 
     // supported language container initialized with ini file

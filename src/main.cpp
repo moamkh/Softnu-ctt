@@ -146,7 +146,6 @@ int main(int argc, char*argv[]){
     myHttpListenerSettings->beginGroup("listener");
     new HttpListener(myHttpListenerSettings,new ApiRequestMapper());
 
-
     QString server_url = myGlobalSettings->value("swagger/server_url").toString();
     mySwaggerGenerator->setTitle(myGlobalSettings->value("swagger/title").toString());
     mySwaggerGenerator->setVersion(myGlobalSettings->value("swagger/version").toString());

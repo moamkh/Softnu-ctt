@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_CallMonitor_t {
-    QByteArrayData data[8];
-    char stringdata0[75];
+    QByteArrayData data[11];
+    char stringdata0[117];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -39,12 +39,16 @@ QT_MOC_LITERAL(3, 25, 7), // "channel"
 QT_MOC_LITERAL(4, 33, 8), // "callData"
 QT_MOC_LITERAL(5, 42, 9), // "callEnded"
 QT_MOC_LITERAL(6, 52, 16), // "callStateChanged"
-QT_MOC_LITERAL(7, 69, 5) // "state"
+QT_MOC_LITERAL(7, 69, 5), // "state"
+QT_MOC_LITERAL(8, 75, 15), // "sendRequestToAi"
+QT_MOC_LITERAL(9, 91, 14), // "RequestPayload"
+QT_MOC_LITERAL(10, 106, 10) // "reqPayload"
 
     },
     "CallMonitor\0callStarted\0\0channel\0"
     "callData\0callEnded\0callStateChanged\0"
-    "state"
+    "state\0sendRequestToAi\0RequestPayload\0"
+    "reqPayload"
 };
 #undef QT_MOC_LITERAL
 
@@ -54,22 +58,24 @@ static const uint qt_meta_data_CallMonitor[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       3,       // signalCount
+       4,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    2,   29,    2, 0x06 /* Public */,
-       5,    2,   34,    2, 0x06 /* Public */,
-       6,    2,   39,    2, 0x06 /* Public */,
+       1,    2,   34,    2, 0x06 /* Public */,
+       5,    2,   39,    2, 0x06 /* Public */,
+       6,    2,   44,    2, 0x06 /* Public */,
+       8,    1,   49,    2, 0x06 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString, QMetaType::QJsonObject,    3,    4,
     QMetaType::Void, QMetaType::QString, QMetaType::QJsonObject,    3,    4,
     QMetaType::Void, QMetaType::QString, QMetaType::QString,    3,    7,
+    QMetaType::Void, 0x80000000 | 9,   10,
 
        0        // eod
 };
@@ -83,6 +89,7 @@ void CallMonitor::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 0: _t->callStarted((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< const QJsonObject(*)>(_a[2]))); break;
         case 1: _t->callEnded((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< const QJsonObject(*)>(_a[2]))); break;
         case 2: _t->callStateChanged((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< const QString(*)>(_a[2]))); break;
+        case 3: _t->sendRequestToAi((*reinterpret_cast< RequestPayload(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -105,6 +112,13 @@ void CallMonitor::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
             using _t = void (CallMonitor::*)(const QString & , const QString & );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&CallMonitor::callStateChanged)) {
                 *result = 2;
+                return;
+            }
+        }
+        {
+            using _t = void (CallMonitor::*)(RequestPayload );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&CallMonitor::sendRequestToAi)) {
+                *result = 3;
                 return;
             }
         }
@@ -140,13 +154,13 @@ int CallMonitor::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 4;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
+        if (_id < 4)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 3;
+        _id -= 4;
     }
     return _id;
 }
@@ -170,6 +184,13 @@ void CallMonitor::callStateChanged(const QString & _t1, const QString & _t2)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);
+}
+
+// SIGNAL 3
+void CallMonitor::sendRequestToAi(RequestPayload _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 3, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

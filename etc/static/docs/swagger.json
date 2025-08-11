@@ -15,6 +15,44 @@
     },
     "openapi": "3.0.0",
     "paths": {
+        "/{language}/api/users/call-summaries/download": {
+            "post": {
+                "parameters": [
+                    {
+                        "description": "language identifier",
+                        "example": "en",
+                        "in": "path",
+                        "name": "language",
+                        "required": true,
+                        "schema": {
+                            "format": "iso639-1",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                }
+                            }
+                        },
+                        "description": "Successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": [
+                        ]
+                    }
+                ],
+                "summary": "Downloads audio file using the provided call summary id.",
+                "tags": [
+                    "Users"
+                ]
+            }
+        },
         "/{language}/users": {
             "get": {
                 "parameters": [

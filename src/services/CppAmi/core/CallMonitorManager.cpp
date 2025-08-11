@@ -7,6 +7,9 @@ CallMonitorManager::CallMonitorManager(const QStringList& extensions, bool logRa
     : QObject(parent)
     , m_logRawEvents(logRawEvents)
 {
+    m_ai_request_manager = new AiBackendService::RequestManager();
+    m_ai_request_manager->start();
+
     for (const QString& ext : extensions) {
         CallMonitor* monitor = new CallMonitor(ext, logRawEvents, this);
         m_callMonitors[ext] = monitor;
@@ -27,6 +30,8 @@ CallMonitorManager::CallMonitorManager(const QStringList& extensions, bool logRa
                     emit callStateChanged(ext, channel, state);
                 });
 
+        connect(monitor,&CallMonitor::sendRequestToAi,m_ai_request_manager,&AiBackendService::RequestManager::AddRequestToQueue);
+
         AmiLogger::instance().info(QString("Initialized CallMonitor for extension %1").arg(ext));
     }
 }
@@ -39,7 +44,7 @@ CallMonitorManager::~CallMonitorManager()
 void CallMonitorManager::processEvent(const QJsonObject& eventData)
 {
     QString channel = eventData["Channel"].toString();
-    
+
     // Extract extension from channel name (e.g., "SIP/255-00000001" -> "255")
     QString extension;
     if (channel.startsWith("SIP/")) {
@@ -53,4 +58,4 @@ void CallMonitorManager::processEvent(const QJsonObject& eventData)
     if (!extension.isEmpty() && m_callMonitors.contains(extension)) {
         m_callMonitors[extension]->processEvent(eventData);
     }
-} 
+}

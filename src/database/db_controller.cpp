@@ -131,7 +131,24 @@ bool DbController::checkUserExists(qint64 userId) {
     }
     return false;
 }
+bool DbController::checkCallSummaryExists(qint64 callSummaryId) {
+    ScopedDbConnection scopedConnection(m_DbConnectionPool);
+    QSqlQuery query(scopedConnection.database());
 
+    query.prepare("SELECT call_func.checkCallSummaryExists(:callSummaryId);");
+    query.bindValue(":callSummaryId", callSummaryId);
+
+    if (!query.exec()) {
+        qDebug() << "Check Call Summary Exists Query Error: " << query.lastError().text();
+        return false;
+    }
+
+    if (query.first()) {
+        return query.value(0).toBool();
+    }
+
+    return false;
+}
 bool DbController::checkUserExistsByUsername(QString &username) {
     ScopedDbConnection scopedConnection(m_DbConnectionPool);
     QSqlQuery query(scopedConnection.database());
@@ -257,6 +274,47 @@ DbResault DbController::listUsers(const QString& searchField, const QString& sea
     return DbResault(resultObj);
 }
 
+DbResault DbController::ountCallSummaries(int userId, const QString &searchField, const QString &searchValue, int startDate, int endDate) {
+    ScopedDbConnection scopedConnection(m_DbConnectionPool);
+    QSqlQuery query(scopedConnection.database());
+
+    // Log input parameters
+    qDebug() << "countCallSummaries called with parameters:";
+    qDebug() << "  userId:" << userId;
+    qDebug() << "  searchField:" << searchField;
+    qDebug() << "  searchValue:" << searchValue;
+    qDebug() << "  startDate:" << startDate;
+    qDebug() << "  endDate:" << endDate;
+
+    // Prepare the query
+    query.prepare("SELECT call_func.count_call_summaries(:user_id, :search_field, :search_value, :start_date, :end_date);");
+    query.bindValue(":user_id", userId);
+    query.bindValue(":search_field", searchField.isEmpty() ? QVariant(QVariant::String) : searchField);
+    query.bindValue(":search_value", searchValue.isEmpty() ? QVariant(QVariant::String) : searchValue);
+    query.bindValue(":start_date", startDate > 0 ? startDate : QVariant(QVariant::Int));
+    query.bindValue(":end_date", endDate > 0 ? endDate : QVariant(QVariant::Int));
+
+    // Log prepared query
+    qDebug() << "Executing countCallSummaries query with:";
+    qDebug() << "  userId:" << userId;
+    qDebug() << "  searchField:" << (searchField.isEmpty() ? "NULL" : searchField);
+    qDebug() << "  searchValue:" << (searchValue.isEmpty() ? "NULL" : searchValue);
+    qDebug() << "  startDate:" << (startDate > 0 ? QString::number(startDate) : "NULL");
+    qDebug() << "  endDate:" << (endDate > 0 ? QString::number(endDate) : "NULL");
+
+    int totalCount = 0;
+    if (query.exec() && query.next()) {
+        totalCount = query.value(0).toInt();
+    } else {
+        qDebug() << "Count Call Summaries Query Error: " << query.lastError().text();
+        return DbResault(DB_FAILED_TO_EXECUTE_QUERY);
+    }
+
+    qDebug() << "Total count of call summaries: " << totalCount;
+
+    return DbResault(totalCount);
+}
+
 
 
 
@@ -365,3 +423,28 @@ DbResault DbController::getTodaysCallSummariesWithEmptyAiResponse() {
     return DbResault(resultObj);
 }
 
+DbResault DbController::getCallSummaryById(qint64 callSummaryId) {
+    ScopedDbConnection scopedConnection(m_DbConnectionPool);
+    QSqlQuery query(scopedConnection.database());
+
+    qDebug() << "getCallSummaryById called with callSummaryId:" << callSummaryId;
+
+    query.prepare("SELECT row_to_json(cs) FROM call_func.getCallSummaryById(:callSummaryId) AS cs;");
+    query.bindValue(":callSummaryId", callSummaryId);
+
+    if (!query.exec()) {
+        qDebug() << "Get Call Summary Query Error:" << query.lastError().text();
+        return DbResault(DB_FAILED_TO_EXECUTE_QUERY);
+    }
+
+    if (query.next()) {
+        QJsonDocument doc = QJsonDocument::fromJson(query.value(0).toString().toUtf8());
+        if (doc.isObject()) {
+            qDebug() << "Call summary found:" << doc.toJson(QJsonDocument::Compact);
+            return DbResault(doc.object());
+        }
+    }
+
+    qDebug() << "No call summary found for ID:" << callSummaryId;
+    return DbResault(DB_NOT_FOUND);
+}

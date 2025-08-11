@@ -14,6 +14,7 @@
 #define DB_FAILED_TO_FETCH_USER_INFO "User info fetching failed."
 #define DB_FAILED_TO_UPDATE_USER_PASSWORD "Failed to update user password."
 #define DB_FAILED_TO_FETCH_USER_URL "Failed to fetch user url"
+#define DB_NOT_FOUND "failed to fetch data"
 
 #define AI_METADATAKEY_INFO "info"
 #define AI_METADATAKEY_PROMPT "prompt"
@@ -57,6 +58,8 @@ public:
         );
     DbResault listAllUsers();
     DbResault listUsers(const QString& searchField, const QString& searchValue, int page, int perPage);
+    DbResault ountCallSummaries(int userId, const QString& searchField, const QString& searchValue, int startDate, int endDate);
+
     bool checkUserExists(qint64 userId);
     bool checkUserExistsByUsername(QString &username);
     DbResault updateUserIsActive(qint64 userId, bool isActive);
@@ -78,7 +81,8 @@ public:
         );
 
     DbResault getTodaysCallSummariesWithEmptyAiResponse();
-
+    bool checkCallSummaryExists(qint64 callSummaryId);
+    DbResault getCallSummaryById(qint64 callSummaryId);
 private:
     DbConnectionPool* m_DbConnectionPool;
 };

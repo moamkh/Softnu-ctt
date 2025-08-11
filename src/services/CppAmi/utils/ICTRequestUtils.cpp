@@ -58,7 +58,7 @@ QJsonArray IctApiUtils::getAllowedExtentions(){
     });
     
     // Create the request
-    QNetworkRequest request(QUrl(apiServer.url+"/getvalidextensions"));
+    QNetworkRequest request(apiServer.url+"/getvalidextensions");
     QByteArray tokenValue = apiServer.tokenPrefix.toUtf8() +" "+apiServer.token.toUtf8();
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
     request.setRawHeader("Authorization",tokenValue ); // Replace with the actual token
@@ -161,10 +161,11 @@ QByteArray IctApiUtils::getLastAudioFile(QString extNum, qint64 epocDate) {
     return responseData;
 }
 
-QByteArray IctApiUtils::getAudioFileByUniqueId(QString unique_id)
+IctApiUtils::FileData IctApiUtils::getAudioFileByUniqueId(QString unique_id)
 {
     ApiServer apiServer = getApiServerCreds();
     QByteArray responseData;
+    QString contentDisposition;
     QEventLoop loop;
 
     // Setup QNetworkAccessManager
@@ -174,7 +175,7 @@ QByteArray IctApiUtils::getAudioFileByUniqueId(QString unique_id)
     qDebug() << "Initializing QNetworkAccessManager.";
 #endif
 
-    QObject::connect(&manager, &QNetworkAccessManager::finished, [&loop, &responseData](QNetworkReply *reply) {
+    QObject::connect(&manager, &QNetworkAccessManager::finished, [&loop, &responseData, &contentDisposition](QNetworkReply *reply) {
 #ifdef QT_DEBUG
         qDebug() << "Network request finished.";
 #endif
@@ -184,6 +185,7 @@ QByteArray IctApiUtils::getAudioFileByUniqueId(QString unique_id)
             qDebug() << "Request successful. Reading response data.";
 #endif
             responseData = reply->readAll();
+            contentDisposition = reply->rawHeader("Content-Disposition"); // Extract header here
         } else {
 #ifdef QT_DEBUG
             qDebug() << "Error occurred: " << reply->errorString();
@@ -226,28 +228,40 @@ QByteArray IctApiUtils::getAudioFileByUniqueId(QString unique_id)
 #ifdef QT_DEBUG
         qDebug() << "No response data received.";
 #endif
-        return QByteArray();
+        return IctApiUtils::FileData(QJsonObject{{"error","Failed to recieve any data from ict get file by unique id api."}});
     }
 
     // Check if the response is JSON
     QJsonParseError jsonError;
     QJsonDocument jsonDoc = QJsonDocument::fromJson(responseData, &jsonError);
     if (jsonError.error == QJsonParseError::NoError) {
-        // If it's JSON, log the error and return an empty QByteArray
-        QJsonObject responseObject = jsonDoc.object();
+        // If it's JSON, log and return the JSON data
 #ifdef QT_DEBUG
-        qDebug() << "Error response received: " << responseObject;
+        qDebug() << "JSON response received: " << jsonDoc.toJson(QJsonDocument::Indented);
 #endif
-        qWarning() << "Request failed. Response: " << QString(responseData);
-        return QByteArray();
+        qWarning() << "Response is JSON. Returning JSON data.";
+
+        return IctApiUtils::FileData(jsonDoc.object());
+    }
+    // Its the actuall wav file
+    QString filename;
+    if (contentDisposition.contains("filename=", Qt::CaseInsensitive)) {
+
+        QRegularExpression re(R"(filename\*?=(?:UTF-8'')?([^;]+))");
+        QRegularExpressionMatch match = re.match(contentDisposition);
+        if (match.hasMatch()) {
+            filename = match.captured(1);
+            // Decode percent-encoded characters if `filename*` is used
+            filename = QUrl::fromPercentEncoding(filename.toUtf8());
+        }
+
+#ifdef QT_DEBUG
+        qDebug() << "WAV file response received. Filename: " << filename;
+#endif
+        qWarning() << "Response is a WAV file. Filename: " << filename;
     }
 
-// If the response is not JSON, assume it's the WAV file
-#ifdef QT_DEBUG
-    qDebug() << "Valid WAV file received.";
-#endif
-
-    return responseData;
+    return IctApiUtils::FileData(responseData,filename);
 }
 
 
