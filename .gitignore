@@ -1,0 +1,9 @@
+# Ignore deployment directory
+deployment/
+
+# Ignore Qt Creator user settings file
+CTT.pro.user
+
+# Ignore build directories inside etc/
+etc/debug_build/
+etc/release_build/
