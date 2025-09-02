@@ -24,23 +24,44 @@ void AmiController::check_users() {
     // Fetch extensions data from ICT API
     QJsonArray ext_user_data = IctApiUtils::getAllowedExtentions();
 
-    if(ext_user_data.isEmpty()){qFatal("Failed to get allowed extentions from ICT API server");}
+    struct IctUser{
+        QString username;
+        QString fullname;
+        QString extentionNo;
+    };
+    // EXAMPLE RESPONSE:
+    // {
+    //     "fullName": "زهرا رباني",
+    //     "userName": "rabani",
+    //     "extesion": 265
+    // }
+
+    if(ext_user_data.isEmpty()){
+        qFatal("Failed to get allowed extentions from ICT API server");
+    }
     // Check if the user exists
+    QMap<QString ,IctUser> IctAllowedUsers;
+
     for (auto user : ext_user_data) {
         QJsonObject userObj = user.toObject();
-        QString username = userObj.value("userName").toString();
-        QString fullname = userObj.value("fullName").toString();
-        QString ext_num = QString::number(userObj.value("extesion").toInt());
 
-        if (!myDbController->checkUserExistsByUsername(username)) {
-            myDbController->createUser(fullname, ext_num, username);
+        IctUser ict_user;
+        ict_user.username = userObj.value("userName").toString();
+        ict_user.fullname = userObj.value("fullName").toString();
+        ict_user.extentionNo = QString::number(userObj.value("extesion").toInt());
 
-#ifdef QT_DEBUG
+
+        IctAllowedUsers.insert(ict_user.username,ict_user);
+
+        if (!myDbController->checkUserExistsByUsername(ict_user.username)) {
+            myDbController->createUser(ict_user.fullname, ict_user.extentionNo, ict_user.username);
+
+            #ifdef QT_DEBUG
             qWarning() << "Inserted new user:"
-                       << "Username:" << username
-                       << "Fullname:" << fullname
-                       << "Extension:" << ext_num;
-#endif
+                       << "Username:" << ict_user.username
+                       << "Fullname:" << ict_user.fullname
+                       << "Extension:" << ict_user.extentionNo;
+            #endif
         }
     }
 
@@ -67,15 +88,27 @@ void AmiController::check_users() {
     // Update is_active status for deactivated users
     for (auto db_user : all_users) {
         QJsonObject db_user_obj = db_user.toObject();
+
+        qint64 db_id = db_user_obj.value("id").toInt();
         QString db_username = db_user_obj.value("username").toString();
+        QString db_fullname = db_user_obj.value("fullname").toString();
+        int db_ext_number = db_user_obj.value("extension_number").toInt();
+
+        // determine active status in ict and db
         bool is_active_in_ict = active_usernames.contains(db_username);
         bool current_is_active = db_user_obj.value("is_active").toBool();
+
+        if(is_active_in_ict){
+            IctUser ict_user = IctAllowedUsers.value(db_username);
+            myDbController->updateUserInfo(db_id,ict_user.fullname,"",ict_user.extentionNo);
+        }
 
         // Update only if the status is different
         if (current_is_active != is_active_in_ict) {
             myDbController->updateUserIsActive(db_user_obj.value("id").toInt(), is_active_in_ict);
 
-#ifdef QT_DEBUG
+            // Update other credentials username and extention number
+            #ifdef QT_DEBUG
             if (is_active_in_ict) {
                 qWarning() << "User reactivated:"
                            << "Username:" << db_username;
@@ -83,7 +116,7 @@ void AmiController::check_users() {
                 qWarning() << "User deactivated:"
                            << "Username:" << db_username;
             }
-#endif
+            #endif
         }
     }
 }

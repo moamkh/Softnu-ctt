@@ -93,17 +93,17 @@ SOURCES += \
 
 
 
-INCLUDEPATH += $$PWD/../../../../othersource/boost_1_86
-INCLUDEPATH += $$PWD/../../../../othersource/jwt-cpp
-INCLUDEPATH += $$PWD/../../../../othersource/picojson
-INCLUDEPATH += $$PWD/../../../../othersource/FLAC/include
+INCLUDEPATH += $$PWD/../../othersource/boost_1_86
+INCLUDEPATH += $$PWD/../../othersource/jwt-cpp
+INCLUDEPATH += $$PWD/../../othersource/picojson
+INCLUDEPATH += $$PWD/../../othersource/FLAC/include
 
 LIBS += /usr/local/lib/libadclient.so
 LIBS += -L/usr/lib -lssl -lcrypto
 
 
 OTHER_FILES +=
-include($$PWD/../../../../othersource/QtWebApp/httpserver/httpserver.pri)
+include($$PWD/../../othersource/QtWebApp/httpserver/httpserver.pri)
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

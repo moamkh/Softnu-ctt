@@ -49,6 +49,8 @@ public:
     ~DbController();
 
     DbResault createUser(QString &fullname, QString &extensionNumber, QString &username);
+    DbResault updateUserInfo(qint64 userId, const QString &fullname, const QString &username, const QString &extensionNumber);
+
     DbResault getUserDetails(qint64 userId);
     bool updateUser(
         qint64 userId,

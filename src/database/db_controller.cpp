@@ -35,6 +35,24 @@ DbResault DbController::createUser(QString &fullname, QString &extensionNumber, 
     return DbResault(QJsonObject());  // No return data needed, just success
 }
 
+DbResault DbController::updateUserInfo(qint64 userId, const QString &fullname, const QString &username, const QString &extensionNumber) {
+    ScopedDbConnection scopedConnection(m_DbConnectionPool);
+    QSqlQuery query(scopedConnection.database());
+
+    query.prepare("SELECT user_func.update_user_info(:userId, :fullname, :username, :extensionNumber);");
+    query.bindValue(":userId", userId);
+    query.bindValue(":fullname", fullname);
+    query.bindValue(":username", username);
+    query.bindValue(":extensionNumber", extensionNumber);
+
+    if (!query.exec()) {
+        qDebug() << "Update User Info Query Error: " << query.lastError().text();
+        return DbResault(DB_FAILED_TO_EXECUTE_QUERY);
+    }
+
+    return DbResault(QJsonObject());  // Success
+}
+
 DbResault DbController::getUserDetails(qint64 userId) {
     ScopedDbConnection scopedConnection(m_DbConnectionPool);
     QSqlQuery query(scopedConnection.database());
