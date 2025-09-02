@@ -155,7 +155,6 @@ class DatabaseController:
                 if search_field == 'all':
                     print(f"[DEBUG] 'all' search: search_value={search_value}")
                     filter_condition = or_(
-                        CallSummary.extension_number == str(search_value) if search_value.isdigit() else False,
                         CallSummary.callee.ilike(f'%{search_value}%'),
                         CallSummary.direction.ilike(f'%{search_value}%'),
                         CallSummary.type.ilike(f'%{search_value}%')
@@ -167,8 +166,6 @@ class DatabaseController:
                         print(f"[DEBUG] Results after 'all' filter: {debug_count}")
                     except Exception as e:
                         print(f"[DEBUG] Error counting after 'all' filter: {e}")
-                elif search_field == 'extension_number':
-                    query = query.filter(CallSummary.extension_number == str(search_value))
                 elif search_field == 'callee':
                     query = query.filter(CallSummary.callee.ilike(f'%{search_value}%'))
                 elif search_field == 'direction':
@@ -266,58 +263,51 @@ class DatabaseController:
         finally:
             db.close()
 
-    def get_user_call_summaries(self,
-                                user_id: int,
-                                search_field: Optional[str] = None,
-                                search_value: Optional[str] = None,
-                                start_date: Optional[int] = None,
-                                end_date: Optional[int] = None,
-                                page: int = 1,
-                                per_page: int = 20) -> Dict[str, Any]:
+    def get_user_call_summaries(
+        self,
+        user_id: int,
+        search_field: Optional[str] = None,
+        search_value: Optional[str] = None,
+        start_date: Optional[int] = None,
+        end_date: Optional[int] = None,
+        page: int = 1,
+        per_page: int = 20
+    ) -> Dict[str, Any]:
         db = self.get_db()
         try:
-            import os
             db_url = self.engine.url
             print(f"[DEBUG] Using database at: {db_url}")
-            print(f"[DEBUG] (user) search_field: {search_field}, search_value: {search_value}, start_date: {start_date}, end_date: {end_date}, user_id: {user_id}")
+            print(f"[DEBUG] (user) search_field: {search_field}, search_value: {search_value}, "
+                f"start_date: {start_date}, end_date: {end_date}, user_id: {user_id}")
 
-            # Get the user and their extension number
-            user = db.query(User).filter(User.id == user_id).first()
-            if not user:
-                return {"total": 0, "page": page, "per_page": per_page, "total_pages": 0, "results": []}
-            extension_number = user.extension_number
+            # Start query: external calls related to the given user_id
+            query = (
+                db.query(CallSummary)
+                .join(RelUserCalls, RelUserCalls.call_summary_id == CallSummary.id)
+                .filter(
+                    RelUserCalls.user_id == user_id,
+                    CallSummary.type == 'external'
+                )
+                .options(joinedload(CallSummary.users))
+            )
 
-            # Start with a query for external calls for the given extension_number
-            query = db.query(CallSummary).filter(
-                CallSummary.type == 'external',
-                CallSummary.extension_number == str(extension_number)
-            ).options(joinedload(CallSummary.users))
-
-            # Debug: count of external calls for this extension
+            # Debug count
             try:
-                count_external = db.query(CallSummary).filter(CallSummary.type == 'external', CallSummary.extension_number == str(extension_number)).count()
-                print(f"[DEBUG] (user) Count of external calls for extension {extension_number}: {count_external}")
+                count_external = query.count()
+                print(f"[DEBUG] (user) Count of external calls for user_id {user_id}: {count_external}")
             except Exception as e:
                 print(f"[DEBUG] (user) Error counting external calls: {e}")
-
 
             # Apply filters
             if search_field and search_value not in [None, '']:
                 if search_field == 'all':
-                    print(f"[DEBUG] (user) 'all' search: search_value={search_value}")
                     filter_condition = or_(
                         CallSummary.extension_number == str(search_value) if search_value.isdigit() else False,
                         CallSummary.callee.ilike(f'%{search_value}%'),
                         CallSummary.direction.ilike(f'%{search_value}%'),
                         CallSummary.type.ilike(f'%{search_value}%')
                     )
-                    print(f"[DEBUG] (user) 'all' search filter: {filter_condition}")
                     query = query.filter(filter_condition)
-                    try:
-                        debug_count = query.count()
-                        print(f"[DEBUG] (user) Results after 'all' filter: {debug_count}")
-                    except Exception as e:
-                        print(f"[DEBUG] (user) Error counting after 'all' filter: {e}")
                 elif search_field == 'extension_number':
                     query = query.filter(CallSummary.extension_number == str(search_value))
                 elif search_field == 'callee':
@@ -328,9 +318,9 @@ class DatabaseController:
                     query = query.filter(CallSummary.type.ilike(f'%{search_value}%'))
 
             if start_date not in [None, '']:
-                query = query.filter(CallSummary.start_time >= start_date/1000)
+                query = query.filter(CallSummary.start_time >= start_date)
             if end_date not in [None, '']:
-                query = query.filter(CallSummary.end_time <= end_date/1000)
+                query = query.filter(CallSummary.end_time <= end_date)
 
             # Get total count
             total = query.count()
@@ -340,7 +330,7 @@ class DatabaseController:
             query = query.order_by(CallSummary.start_time.desc())
             query = query.offset((page - 1) * per_page).limit(per_page)
 
-            # Get results with user information
+            # Results
             results = query.all()
             print(f"[DEBUG] (user) Results returned: {len(results)}")
 
@@ -352,7 +342,8 @@ class DatabaseController:
                 "results": results
             }
         finally:
-            db.close() 
+            db.close()
+
 
     def update_user_by_extension(self, extension_number: str, username: str, fullname: str, role: str = 'CTT user') -> bool:
         db = self.get_db()
