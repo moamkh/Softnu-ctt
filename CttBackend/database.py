@@ -112,14 +112,6 @@ class DatabaseController:
                 db.refresh(call_summary)
                 print(f"Created call summary: {call_summary.id} for user {user.fullname}")
                 print(f"Created relationship: User {user.id} -> Call {call_summary.id}")
-                # If external, trigger audio retrieval
-                if type == 'external' and unique_id is not None:
-                    get_audio_manager().add_audio_task(
-                        end_time=end_time,
-                        extension_number=extension_number,
-                        unique_id=unique_id,
-                        call_summary_id=call_summary.id
-                    )
                 return call_summary
             else:
                 db.rollback()
